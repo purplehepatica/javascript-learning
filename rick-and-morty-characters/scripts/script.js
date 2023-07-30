@@ -11,8 +11,8 @@ async function getCharactersData() {
 async function buildCharactersHtmlStructure(rickAndMortyCharactersDataInfo, rickAndMortyCharactersDataResults) {
 
     const numberOfAllCharacters = rickAndMortyCharactersDataInfo.count;
-
-    const numberOfAllPages = rickAndMortyCharactersDataInfo.count / 20;
+    const numOfCharactersOnPage = 20;
+    const numberOfAllPages = rickAndMortyCharactersDataInfo.count / numOfCharactersOnPage;
 
     const characterPagination = document.querySelector(".character-pagination");
 
