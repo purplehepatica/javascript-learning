@@ -1,0 +1,51 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+p {
+    overflow-wrap: break-word;
+}
+
+.bold {
+    font-weight: 700;
+}
+
+.characters-container, .character-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.character-card {
+    margin: 25px;
+    padding: 25px;
+    border: 1px solid black;
+    max-width: 350px;
+}
+
+.character-card:hover {
+    background-color: gray;
+    color: white;
+}
+
+.character-pagination {
+    color: black;
+    height: 200px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.character-pagination p {
+    margin: 10px;
+}
