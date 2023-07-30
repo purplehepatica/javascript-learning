@@ -1,8 +1,19 @@
 const charactersContainer = document.querySelector(".characters-container");
-const baseRickAndMortyApiUrl = "https://rickandmortyapi.com/api/character"
+
+/** zaczerpnięte z internetu **/
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+const pageId = urlParams.get('page');
+
+/** end **/
+let numOfPageParam = 1;
+
+if (pageId !== null) {
+    numOfPageParam = pageId
+}
 
 async function getCharactersData() {
-    const fetchApiData = await fetch(baseRickAndMortyApiUrl);
+    const fetchApiData = await fetch(`https://rickandmortyapi.com/api/character/?page=${numOfPageParam}`);
     const rickAndMortyCharactersData = await fetchApiData.json();
 
     buildCharactersHtmlStructure(rickAndMortyCharactersData.info, rickAndMortyCharactersData.results);
