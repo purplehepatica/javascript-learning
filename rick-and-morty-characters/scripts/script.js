@@ -55,7 +55,7 @@ async function buildCharactersHtmlStructure(rickAndMortyCharactersDataInfo, rick
 
 
         characterCard.addEventListener("click", () => {
-            window.location.href = `./character.html?id=${id}`;
+            window.location.href = `./character.html?id=${id}&page=${pageId}`;
         })
 
 

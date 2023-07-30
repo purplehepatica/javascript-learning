@@ -9,6 +9,11 @@ body {
     margin: 0 auto;
 }
 
+h1 {
+    text-align: center;
+    margin: 25px 0;
+}
+
 p {
     overflow-wrap: break-word;
 }
@@ -48,4 +53,8 @@ p {
 
 .character-pagination p {
     margin: 10px;
+}
+
+.back-button {
+    text-align: center;
 }

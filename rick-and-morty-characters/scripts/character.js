@@ -2,6 +2,8 @@
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const characterId = urlParams.get('id');
+const lastPageId = urlParams.get('page');
+
 /** end **/
 
 
@@ -18,6 +20,18 @@ async function getCharactersData() {
 async function buildCharactersHtmlStructure(rickAndMortyCharactersData) {
 
     const { name, image, species, gender, location: { name: locationName }, status, episode  } = rickAndMortyCharactersData;
+
+
+
+        const backToPageLink = document.querySelector(".back-button");
+
+        const backToPageLinkAElement = document.createElement("a");
+
+        backToPageLinkAElement.setAttribute("href", `./?page=${lastPageId}`)
+
+        backToPageLinkAElement.textContent = "Wróć do poprzedniej strony"
+
+    backToPageLink.append(backToPageLinkAElement)
 
         const characterCard= document.createElement("div");
         characterCard.classList.add("character-card");
