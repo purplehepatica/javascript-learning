@@ -4,17 +4,27 @@ const charactersContainer = document.querySelector(".characters-container");
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const pageId = urlParams.get('page');
+const characterName = urlParams.get('name');
 
 /** end **/
 let numOfPageParam = 1;
 
 if (pageId !== null) {
-    numOfPageParam = pageId
+    numOfPageParam = pageId;
 }
 
 async function getCharactersData() {
-    const fetchApiData = await fetch(`https://rickandmortyapi.com/api/character/?page=${numOfPageParam}`);
+
+    let fetchApiData = null;
+
+    if (characterName !== null && pageId !== null) {
+        fetchApiData = await fetch(`https://rickandmortyapi.com/api/character/?name=${characterName}&page=${pageId}`);
+    } else {
+        fetchApiData = await fetch(`https://rickandmortyapi.com/api/character/?page=${numOfPageParam}`);
+    }
+
     const rickAndMortyCharactersData = await fetchApiData.json();
+
 
     buildCharactersHtmlStructure(rickAndMortyCharactersData.info, rickAndMortyCharactersData.results);
 }
@@ -27,10 +37,16 @@ async function buildCharactersHtmlStructure(rickAndMortyCharactersDataInfo, rick
 
     const characterPagination = document.querySelector(".character-pagination");
 
-    for (let i = 1; i < numberOfAllPages; i++) {
-        characterPagination.innerHTML += `
-        <p><a href="./?page=${i}">${i}</a></p>
-        `
+    for (let i = 1; i < numberOfAllPages + 1; i++) {
+        if (characterName === null) {
+            characterPagination.innerHTML += `
+            <p><a href="./?page=${i}">${i}</a></p>
+            `;
+        } else {
+            characterPagination.innerHTML += `
+            <p><a href="./?name=${characterName}&page=${i}">${i}</a></p>
+            `;
+        }
     }
 
 
@@ -71,3 +87,16 @@ async function buildCharactersHtmlStructure(rickAndMortyCharactersDataInfo, rick
 }
 
 getCharactersData()
+
+function searchForData() {
+    const searchInput = document.querySelector(".search");
+
+    searchInput.addEventListener("keypress", (e) => {
+        if (e.key === "Enter") {
+            console.log(searchInput.value)
+            window.location.href = `./?name=${searchInput.value}&page=1`;
+        }
+    })
+}
+
+searchForData()
