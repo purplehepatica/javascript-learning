@@ -19,26 +19,25 @@ async function getCharactersData() {
 
 async function buildCharactersHtmlStructure(rickAndMortyCharactersData) {
 
-    const { name, image, species, gender, location: { name: locationName }, status, episode  } = rickAndMortyCharactersData;
+    const { name, image, species, gender, location: { name: locationName }, status, episode: episodes  } = rickAndMortyCharactersData;
 
 
 
-        const backToPageLink = document.querySelector(".back-button");
+        const backToPageLink = document.querySelector(".back-button p");
 
         const backToPageLinkAElement = document.createElement("a");
 
         backToPageLinkAElement.setAttribute("href", `./?page=${lastPageId}`)
 
-        backToPageLinkAElement.textContent = "Wróć do poprzedniej strony"
+        backToPageLinkAElement.textContent = "Poprzednia strona";
 
-    backToPageLink.append(backToPageLinkAElement)
+        backToPageLink.append(backToPageLinkAElement);
 
         const characterCard= document.createElement("div");
-        characterCard.classList.add("character-card");
+        characterCard.classList.add("character-card-extended");
 
-        let newEp = episode.join("");
-        newEp = newEp.split("https://rickandmortyapi.com/api/episode/")
-        console.log(newEp)
+
+        const pulledEpisodesNumbers = episodes.map((urlPart) => urlPart.replace("https://rickandmortyapi.com/api/episode/", ""));
 
         characterCard.innerHTML = `
         <img src="${image}" />
@@ -48,12 +47,26 @@ async function buildCharactersHtmlStructure(rickAndMortyCharactersData) {
         <p><span class="bold">Lokacja:</span> ${locationName}</p>
         <p><span class="bold">Status żywotności:</span> ${status}</p>
         <p class="bold">Epizody:</p>
-        <p>${newEp}</p>
+        <div class="episodes-container">
+            
+        </div>
         `;
 
         charactersContainer.append(characterCard);
 
+        appendEpisodesToCharacter(pulledEpisodesNumbers);
+
 
 }
 
-getCharactersData()
+getCharactersData();
+
+function appendEpisodesToCharacter(episodes) {
+    const episodesContainer = document.querySelector(".episodes-container");
+
+    for (let i = 0; i < episodes.length; i++) {
+        episodesContainer.innerHTML += `
+                    <p class="episode">${episodes[i]}</p>
+                    `;
+    }
+}

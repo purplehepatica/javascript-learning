@@ -10,8 +10,8 @@
 }
 
 ::selection {
-    background-color: black;
-    color: white;
+    background-color: #D6CDFC;
+    color: black;
 }
 
 body {
@@ -21,7 +21,6 @@ body {
 
 h1 {
     text-align: center;
-    margin: 25px 0;
 }
 
 a {
@@ -34,14 +33,10 @@ a:hover {
     font-weight: 700;
 }
 
-a {
-    color: black;
-}
-
 .search {
     padding: 15px 25px;
     margin: 25px;
-    border: 5px solid black;
+    border: 3px solid black;
 }
 
 .main {
@@ -52,6 +47,9 @@ a {
     font-weight: 700;
 }
 
+img {
+    max-width: 250px;
+}
 
 .left-sidebar {
     margin: 25px;
@@ -81,23 +79,39 @@ a {
     align-items: center;
     justify-content: center;
     background-color: #FCE5CD;
-    height: calc(100vh - 250px);
-    overflow: hidden;
-    overflow-y: scroll;
+    height: 100%;
 }
 
 .character-card {
     margin: 25px;
     padding: 25px;
-    max-width: 350px;
+    max-width: 300px;
+    height: 350px;
     background-color: white;
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0 8px 24px;
     border-radius: 15px;
 }
 
+.character-card-extended {
+    margin: 25px;
+    padding: 25px;
+    max-width: 350px;
+    background-color: white;
+    box-shadow: rgba(149, 157, 165, 0.2) 0 8px 24px;
+    border-radius: 15px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.character-card-extended img {
+    margin: 0 auto;
+    padding-bottom: 16px;
+    max-width: none;
+}
+
 .character-card:hover {
-    background-color: black;
-    color: white;
+    background-color: #D6CDFC;
     cursor: pointer;
 }
 
@@ -112,13 +126,39 @@ a {
 
 .character-pagination p {
     text-align: center;
-    margin: 5px;
+    margin: 2px;
 }
 
 .character-pagination a {
     padding: 5px;
+    width: 100%;
+    display: inline-block;
 }
 
 .back-button {
     text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    width: 200px;
+    margin: 20px auto;
+}
+
+.back-button:hover {
+    background-color: black;
+    color: white;
+}
+
+.episodes-container {
+    display: grid;
+    flex-wrap: wrap;
+    text-align: center;
+
+    grid-template-columns: repeat(13, 1fr);
+}
+
+.episode {
+    margin: 2px;
 }

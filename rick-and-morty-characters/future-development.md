@@ -7,7 +7,7 @@
 - Wykonanie potrzebnych testów JEST / Vitest
 - Poprawienie działania, kiedy liczba stron jest nieprawidłowa lub nieprawidłowa jest wpisana przez użytkownika nazwa postaci
 - Poprawienie responsywności
-
+- "let fetchApiData = null;" - variable initializer is redundant 
 ## Done:
 
 - Przeniesienie paginacji oraz wyszukiwania do panelu po lewej / prawej stronie
