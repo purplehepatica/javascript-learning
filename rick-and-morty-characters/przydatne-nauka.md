@@ -22,3 +22,7 @@ Po co jest ten cały GraphQL? https://rickandmortyapi.com/documentation/#graphql
 searchInput.addEventListener("keypress", (e) => {
 console.log(e);
 })
+
+## Kolorowanie scrollbara
+
+https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_scrollbars_styling

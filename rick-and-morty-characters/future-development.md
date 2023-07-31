@@ -6,6 +6,7 @@
 - Poprawienie stylów CSS
 - Wykonanie potrzebnych testów JEST / Vitest
 - Poprawienie działania, kiedy liczba stron jest nieprawidłowa lub nieprawidłowa jest wpisana przez użytkownika nazwa postaci
+- Poprawienie responsywności
 
 ## Done:
 
