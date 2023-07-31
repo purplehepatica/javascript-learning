@@ -26,7 +26,7 @@ async function getCharactersData() {
     const rickAndMortyCharactersData = await fetchApiData.json();
 
 
-    buildCharactersHtmlStructure(rickAndMortyCharactersData.info, rickAndMortyCharactersData.results);
+    await buildCharactersHtmlStructure(rickAndMortyCharactersData.info, rickAndMortyCharactersData.results);
 }
 
 async function buildCharactersHtmlStructure(rickAndMortyCharactersDataInfo, rickAndMortyCharactersDataResults) {
