@@ -16,9 +16,13 @@
         max-width: 250px;
     }
 
+    .character-card-extended {
+        max-width: 300px;
+    }
+
     .character-container img{
-        width: 200px;
-        height: 200px;
+        width: 225px;
+        height: 225px;
     }
 
     .character-pagination {
