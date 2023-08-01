@@ -111,7 +111,7 @@ img {
 }
 
 .character-card-extended {
-    margin: 25px;
+    margin: 25px auto;
     padding: 25px;
     max-width: 350px;
     background-color: white;
