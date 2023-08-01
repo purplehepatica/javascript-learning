@@ -16,12 +16,22 @@
         max-width: 250px;
     }
 
+    .character-container img{
+        width: 200px;
+        height: 200px;
+    }
+
     .character-pagination {
         grid-template-columns: repeat(9, 1fr);
     }
 
     .characters-container {
         height: 350px;
+    }
+
+    .characters-container img{
+        width: 200px;
+        height: 200px;
     }
 }
 

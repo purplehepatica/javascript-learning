@@ -91,6 +91,11 @@ img {
     scrollbar-width: auto;
 }
 
+.characters-container img{
+    width: 250px;
+    height: 250px;
+}
+
 .character-container {
     display: flex;
     flex-direction: row;
@@ -104,6 +109,11 @@ img {
 
     scrollbar-color: black rgba(0, 0, 0, 0.1);
     scrollbar-width: auto;
+}
+
+.character-container img{
+    width: 250px;
+    height: 250px;
 }
 
 .character-card {
@@ -173,11 +183,21 @@ img {
 
     width: 200px;
     margin: 20px auto;
+    padding: 5px;
+}
+
+.back-button a {
+    color: black;
 }
 
 .back-button:hover {
     background-color: black;
     color: white;
+}
+
+.back-button:hover a {
+    color: white;
+    font-weight: 400;
 }
 
 .episodes-container {
