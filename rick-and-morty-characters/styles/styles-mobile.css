@@ -1,0 +1,32 @@
+@media only screen and (max-width: 767px) {
+    .main {
+        flex-direction: column;
+    }
+
+    .left-sidebar {
+        display: flex;
+        flex-direction: column;
+    }
+
+    img {
+        max-width: 200px;
+    }
+
+    .character-card {
+        max-width: 250px;
+    }
+
+    .character-pagination {
+        grid-template-columns: repeat(9, 1fr);
+    }
+
+    .characters-container {
+        height: 350px;
+    }
+}
+
+@media only screen and (max-width: 374px) {
+    .character-pagination {
+        grid-template-columns: repeat(6, 1fr);
+    }
+}

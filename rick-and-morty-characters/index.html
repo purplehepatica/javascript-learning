@@ -1,25 +1,32 @@
 <!DOCTYPE html>
 <html lang="pl">
-    <head>
-        <meta charset="UTF-8">
-        <script src="scripts/index.js" defer></script>
-        <link rel="stylesheet" href="styles.css">
-    </head>
-    <body>
-        <div class="main">
+<head>
+    <title>Lista postaci z serialu Rick & Morty</title>
+    <meta charset="UTF-8">
+    <script defer src="./scripts/index.js" type="module"></script>
+    <script defer src="./scripts/character.class.js" type="module"></script>
+    <link href="./styles/styles.css" rel="stylesheet">
+    <link href="./styles/styles-mobile.css" rel="stylesheet">
+</head>
+<body>
+<div class="main">
 
-            <div class="left-sidebar">
-                <h1><a href="./">Lista postaci z serialu Rick & Morty</a></h1>
-                <input class="search" type="text" placeholder="Wyszukaj..."/>
-                <div class="character-pagination">
-                </div>
-            </div>
-
-            <div class="characters-container">
-
-            </div>
-
+    <div class="left-sidebar">
+        <h1><a href="./">Lista postaci z serialu Rick & Morty</a></h1>
+        <div class="search-container">
+            <input class="search" placeholder="Rick..." type="text"/>
+            <button class="search-button">Wyszukaj</button>
         </div>
+        <p class="number-of-pages">Liczba podstron</p>
+        <div class="character-pagination">
+        </div>
+    </div>
 
-    </body>
+    <div class="characters-container">
+
+    </div>
+
+</div>
+
+</body>
 </html>
