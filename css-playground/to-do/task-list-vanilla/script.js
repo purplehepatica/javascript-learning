@@ -1,7 +1,10 @@
 const elements = {
     addTaskButton: document.querySelector(".add-task-button"),
     taskInputField: document.querySelector(".task-input-field"),
-    mainTasksContainer: document.querySelector(".tasks")
+    mainTasksContainer: document.querySelector(".tasks"),
+    saveTasksButton: document.querySelector(".save-tasks-data"),
+    removeTasksButton: document.querySelector(".remove-tasks-data"),
+    clearTasksButton: document.querySelector(".clear-tasks-data")
 }
 
 let numOfTasks = 0;
@@ -33,4 +36,20 @@ function createTaskComponent(value) {
 
 }
 
-// elements.addTaskButton.addEventListener("click", createTaskComponent);
+/** Save Data in Local Storage **/
+if (localStorage.getItem("tasksData") !== null) {
+    elements.mainTasksContainer.innerHTML = localStorage.getItem("tasksData");
+}
+
+elements.saveTasksButton.addEventListener("click", () => {
+    const tasksData = elements.mainTasksContainer.innerHTML;
+    localStorage.setItem("tasksData", tasksData)
+})
+
+elements.removeTasksButton.addEventListener("click", () => {
+    localStorage.removeItem("tasksData")
+})
+
+elements.clearTasksButton.addEventListener("click", () => {
+    elements.mainTasksContainer.innerHTML = null;
+})
