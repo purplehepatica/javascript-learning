@@ -1,8 +1,9 @@
 :root {
     --primary: #5e35b1;
+    --primary-hover: #88B135;
 }
 
-.task-container {
+.task-container, .subtask-container {
     margin: 0 0 25px 0;
     padding: 25px 25px 5px 25px;
 }
@@ -21,4 +22,28 @@ dialog article {
     height: 95%;
     max-width: 95%;
     max-height: 95%
+}
+
+.warning {
+    background-color: #CE102B;
+}
+.success {
+    background-color: #32B826;
+}
+.button-flex-center-width-65 {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    justify-self: right;
+    width: 65px
+}
+
+.flex-gap {
+    display: flex;
+    gap: 25px;
+}
+
+nav li {
+    font-size: 32px;
+    font-weight: 700;
 }

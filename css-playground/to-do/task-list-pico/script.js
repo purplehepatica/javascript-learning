@@ -22,12 +22,27 @@ function createTaskComponent() {
     taskContainer.classList.add("task");
 
     taskContainer.innerHTML = `
-        <article class="task-container">
+        <div class="task-container">
             <div class="grid">
                 <p>${getTaskInputData()}</p>
-                <button class="open-task-button button contrast">Otwórz</button>
-                <button class="edit-task-button button secondary" data-is-edited="false">Edytuj</button>
-                <button class="remove-task-button button is-light">Zrobione</button>
+                <div class="grid">
+                    <button class="open-task-button button contrast">
+                        <span class="material-symbols-outlined">
+                            open_in_new
+                        </span>
+                    </button>
+                <button class="edit-task-button button secondary" data-is-edited="false">
+                    <span class="material-symbols-outlined">
+                            edit
+                    </span>
+                </button>
+                <button class="remove-task-button button success">
+                    <span class="material-symbols-outlined">
+                        done
+                    </span>
+                </button>
+                </div>
+                
             </div>
             <dialog>
                 <article>
@@ -35,17 +50,23 @@ function createTaskComponent() {
                        class="close">
                     </button>
                     <h3 class="task-title">${getTaskInputData()}</h3>
-                    
-                    <p class="description">
-                        Cras sit amet maximus risus.
-                        Pellentesque sodales odio sit amet augue finibus pellentesque.
-                        Nullam finibus risus non semper euismod.
-                    </p>
-                    
-                    <div class="grid">
-                        <input class="subtask-input-field" placeholder="Kupić..." />
-                        <button class="add-subtask-button">Dodaj zadanie</button>
-                        <button class="clear-subtasks-data secondary">Wyczyść zadania</button>
+                                        
+                    <blockquote class="description">
+                        "*Tu wrzucić losowe cytaty wspomagające motywację i działanie*"<br>
+                        "*Domyślnie wrzucić tutaj możliwość zmiany opisu na własny, by dany projekt był jasny*"
+                    </blockquote>
+                    <div class="flex-gap">
+                        <input class="subtask-input-field" placeholder="" />
+                        <button class="add-subtask-button button-flex-center-width-65">
+                            <span class="material-symbols-outlined">
+                                add
+                            </span>
+                        </button>
+                        <button class="clear-subtasks-data warning button-flex-center-width-65">
+                            <span class="material-symbols-outlined">
+                                delete
+                            </span>
+                        </button>
                     </div>
                     
                     <div class="subtasks">
@@ -55,7 +76,7 @@ function createTaskComponent() {
                     
                 </article>
             </dialog>
-        </article>
+        </div>
     `;
 
     const subtaskInput = taskContainer.querySelector(".subtask-input-field");
@@ -138,8 +159,19 @@ function createSubtaskComponent(subtaskInput, addSubtaskButton, clearSubtasksDat
         <article class="article subtask-container">
             <div class="grid">
                 <p class="subtask-title">${subtaskInput.value}</p>
-                <button class="edit-subtask-button button secondary" data-is-edited="false">Edytuj</button>
-                <button class="remove-subtask-button button is-light">Zrobione</button>
+                <div class="grid">
+                    <button class="edit-subtask-button button secondary" data-is-edited="false">
+                    <span class="material-symbols-outlined">
+                        edit
+                    </span>
+                </button>
+                <button class="remove-subtask-button button success">
+                    <span class="material-symbols-outlined">
+                        check
+                    </span>
+                </button>
+            </div>
+                
             </div>
         </article>
     `;
