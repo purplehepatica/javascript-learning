@@ -43,6 +43,10 @@ dialog article {
     gap: 25px;
 }
 
+.grow-1 {
+    flex-grow: 1;
+}
+
 nav li {
     font-size: 32px;
     font-weight: 700;

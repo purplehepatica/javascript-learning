@@ -157,15 +157,15 @@ function createSubtaskComponent(subtaskInput, addSubtaskButton, clearSubtasksDat
 
     subtaskContainer.innerHTML = `
         <article class="article subtask-container">
-            <div class="grid">
-                <p class="subtask-title">${subtaskInput.value}</p>
-                <div class="grid">
-                    <button class="edit-subtask-button button secondary" data-is-edited="false">
+            <div class="flex-gap">
+                <p class="subtask-title grow-1">${subtaskInput.value}</p>
+                <div class="flex-gap">
+                    <button class="edit-subtask-button button secondary button-flex-center-width-65" data-is-edited="false">
                     <span class="material-symbols-outlined">
                         edit
                     </span>
                 </button>
-                <button class="remove-subtask-button button success">
+                <button class="remove-subtask-button button success button-flex-center-width-65">
                     <span class="material-symbols-outlined">
                         check
                     </span>

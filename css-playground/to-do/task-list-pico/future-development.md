@@ -19,3 +19,7 @@
 ---
 https://picocss.com/third-party/
 https://picocss.com/docs/typography.html
+https://picocss.com/examples/bootstrap-grid/
+
+! PICO V.2!
+https://v2.picocss.com/docs/colors
