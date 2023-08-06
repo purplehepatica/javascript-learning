@@ -22,10 +22,10 @@ function createTaskComponent() {
     taskContainer.classList.add("task");
 
     taskContainer.innerHTML = `
-        <div class="task-container">
-            <div class="grid">
-                <p>${getTaskInputData()}</p>
-                <div class="grid">
+        <article class="task-container">
+            <div class="flex-gap">
+                <p class="grow-1">${getTaskInputData()}</p>
+                <div class="flex-gap">
                     <button class="open-task-button button contrast">
                         <span class="material-symbols-outlined">
                             open_in_new
@@ -76,7 +76,7 @@ function createTaskComponent() {
                     
                 </article>
             </dialog>
-        </div>
+        </article>
     `;
 
     const subtaskInput = taskContainer.querySelector(".subtask-input-field");
