@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head lang="pl">
+    <!--<link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/@picocss/pico@next/css/pico.min.css"
+    />-->
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+        }
+
+        input {
+            height: 50px;
+            width: 500px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="description-container">
+        <p class="description">Click on me, then click outside of me or click 'Enter'</p>
+    </div>
+</body>
+
+<script>
+
+    function listenerToP() {
+        document.querySelector(".description-container p").addEventListener("click", () => {
+            document.querySelector(".description-container").innerHTML = `
+            <input class="description" type="text" value="${document.querySelector("p").textContent}" />
+        `
+
+            return listenerToI()
+        })
+    }
+
+    function listenerToI() {
+
+        document.querySelector(".description-container input").addEventListener("keydown", (e) => {
+            if (e.key === "Enter") {
+
+                const content = document.querySelector("input").value;
+
+                document.querySelector(".description-container").innerHTML = `
+                <p class="description"></p>
+            `
+
+                document.querySelector(".description").textContent = content;
+                return listenerToP();
+            }
+        })
+
+        document.addEventListener("click", (e) => {
+
+            const descriptionContainer = document.querySelector(".description-container");
+
+            if (document.querySelector("html") === e.target && document.querySelector(".description-container input") !== null) {
+                const content = document.querySelector("input").value;
+
+                document.querySelector(".description-container").innerHTML = `
+                <p class="description"></p>
+            `
+
+                document.querySelector(".description").textContent = content
+
+                return listenerToP();
+            }
+        })
+
+    }
+
+    listenerToP()
+</script>
+</html>

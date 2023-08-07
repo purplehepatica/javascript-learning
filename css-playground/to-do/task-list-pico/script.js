@@ -23,7 +23,7 @@ function createTaskComponent() {
 
     taskContainer.innerHTML = `
         <article class="task-container">
-            <div class="flex-gap">
+            <div class="grid mobile-column">
                 <p class="grow-1">${getTaskInputData()}</p>
                 <div class="flex-gap">
                     <button class="open-task-button button contrast">
