@@ -5,12 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6f926ee3-3f39-474a-a5d4-8b04804f6164" name="Changes" comment="Updates and Fun">
-      <change afterPath="$PROJECT_DIR$/task-list-pico/test.dbclick.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/task-list-pico/test.dbclick.html.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-list-pico/updates.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/task-list-pico/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/task-list-pico/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-list-pico/future-development.md" beforeDir="false" afterPath="$PROJECT_DIR$/task-list-pico/future-development.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/task-list-pico/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/task-list-pico/script.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/task-list-pico/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/task-list-pico/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/task-list-pico/test.dbclick.html" beforeDir="false" afterPath="$PROJECT_DIR$/task-list-pico/test.dbclick.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +53,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "/home/fedora/Dokumenty/Pulsar/javascript-learning/css-playground/css-frameworks",
+    "last_opened_file_path": "/home/fedora/Dokumenty/Pulsar/javascript-learning/css-playground/to-do",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -85,6 +84,7 @@
       <workItem from="1691424149350" duration="2373000" />
       <workItem from="1691428324075" duration="6823000" />
       <workItem from="1691448106301" duration="21000" />
+      <workItem from="1691500288490" duration="12097000" />
     </task>
     <task id="LOCAL-00001" summary="Updates and Fun">
       <option name="closed" value="true" />
@@ -220,18 +220,33 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/task-list-pico/script.js</url>
-          <line>152</line>
-          <option name="timeStamp" value="2" />
+          <line>285</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="13" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/task-list-pico/script.js</url>
-          <line>81</line>
-          <option name="timeStamp" value="3" />
+          <line>170</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="14" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/task-list-pico/script.js</url>
-          <line>186</line>
-          <option name="timeStamp" value="4" />
+          <line>171</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/task-list-pico/script.js</url>
+          <line>119</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/task-list-pico/script.js</url>
+          <line>120</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="17" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

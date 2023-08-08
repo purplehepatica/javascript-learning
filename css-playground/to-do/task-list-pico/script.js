@@ -20,6 +20,7 @@ function createTaskComponent() {
 
     const taskContainer = document.createElement("div");
     taskContainer.classList.add("task");
+    taskContainer.classList.add("task-element");
 
     taskContainer.innerHTML = `
         <article class="task-container">
@@ -90,25 +91,12 @@ function createTaskComponent() {
         subtaskInput.value = "";
     })
 
-    taskContainer.querySelector(".clear-subtasks-data").addEventListener("click", () => {
-
-        taskContainer.querySelector(".subtasks").innerHTML = "";
-        localStorage.setItem("tasksData", elements.mainTasksContainer.innerHTML);
-    });
-
     subtaskInput.addEventListener("keydown", (e) => {
-
         if (e.key === "Enter") {
             createSubtaskComponent(subtaskInput, addSubtaskButton, clearSubtasksData, subtasks);
             subtaskInput.value = "";
         }
     })
-
-    taskContainer.querySelector(".remove-task-button").addEventListener("click", () => {
-        taskContainer.remove();
-            localStorage.setItem("tasksData", elements.mainTasksContainer.innerHTML)
-        });
-
 
     const modal = taskContainer.querySelector("dialog");
     const closeModalButton = taskContainer.querySelector("dialog .close");
@@ -124,18 +112,17 @@ function createTaskComponent() {
 
 
 
-    taskContainer.querySelector(".edit-task-button").addEventListener("click", () => {
+
+    /** CLEAN CODE **/
+
+    /** TASK SECTION **/
+
+    makeTaskComponentEditable(taskContainer)
+    makeTaskComponentRemovable(taskContainer)
+
+    /** CLEAN CODE END **/
 
 
-        if (taskContainer.querySelector(".edit-task-button").dataset.isEdited === "false") {
-            taskContainer.querySelector(".edit-task-button").dataset.isEdited = "true";
-            taskEditModeOn(taskContainer);
-        } else if (taskContainer.querySelector(".edit-task-button").dataset.isEdited === "true") {
-            taskContainer.querySelector(".edit-task-button").dataset.isEdited = "false";
-            taskEditModeOff(taskContainer);
-        }
-
-    });
 
 
     if (getTaskInputData() !== "") {
@@ -154,18 +141,19 @@ function createSubtaskComponent(subtaskInput, addSubtaskButton, clearSubtasksDat
 
     const subtaskContainer = document.createElement("div");
     subtaskContainer.classList.add("subtask");
+    subtaskContainer.classList.add("task-element");
 
     subtaskContainer.innerHTML = `
         <article class="article subtask-container">
             <div class="flex-gap">
                 <p class="subtask-title grow-1">${subtaskInput.value}</p>
                 <div class="flex-gap">
-                    <button class="edit-subtask-button button secondary button-flex-center-width-65" data-is-edited="false">
+                    <button class="edit-task-button button secondary" data-is-edited="false">
                     <span class="material-symbols-outlined">
                         edit
                     </span>
                 </button>
-                <button class="remove-subtask-button button success button-flex-center-width-65">
+                <button class="remove-task-button button success">
                     <span class="material-symbols-outlined">
                         check
                     </span>
@@ -180,247 +168,95 @@ function createSubtaskComponent(subtaskInput, addSubtaskButton, clearSubtasksDat
         subtasks.innerHTML = "";
     })
 
-    subtaskContainer.querySelector(".remove-subtask-button").addEventListener("click", () => {
-        subtaskContainer.remove();
-    })
-
-    subtaskContainer.querySelector(".edit-subtask-button").addEventListener("click", () => {
-
-        if (subtaskContainer.querySelector(".edit-subtask-button").dataset.isEdited === "false") {
-            subtaskContainer.querySelector(".edit-subtask-button").dataset.isEdited = "true";
-            subtaskEditModeOn(subtaskContainer);
-        } else if (subtaskContainer.querySelector(".edit-subtask-button").dataset.isEdited === "true") {
-            subtaskContainer.querySelector(".edit-subtask-button").dataset.isEdited = "false";
-            subtaskEditModeOff(subtaskContainer);
-        }
+    makeTaskComponentEditable(subtaskContainer);
+    makeTaskComponentRemovable(subtaskContainer);
 
 
-    })
 
     if (subtaskInput.value !== "") {
-        subtasks.append(subtaskContainer);
 
+        subtasks.append(subtaskContainer);
         localStorage.setItem("tasksData", elements.mainTasksContainer.innerHTML)
     }
 
 }
 
 
-function subtaskEditModeOn(subtaskContainer) {
-    const subtaskText = subtaskContainer.querySelector("p");
-    const subtaskTextContent = subtaskContainer.querySelector("p").textContent;
+const taskEditModeOn = taskContainer => {
 
-    const subtaskEditButton = subtaskContainer.querySelector(".edit-subtask-button");
+    const contentElement = taskContainer.querySelector("p");
+    const contentElementValue = taskContainer.querySelector("p").textContent;
 
-    subtaskText.innerHTML = `
-            <input value="${subtaskTextContent}" />
+    const editTaskButton = taskContainer.querySelector(".edit-task-button");
+
+    contentElement.innerHTML = `
+            <input value="${contentElementValue}" />
         `
-    subtaskEditButton.textContent = "OK?";
-
-    localStorage.setItem("tasksData", elements.mainTasksContainer.innerHTML)
+    editTaskButton.textContent = "OK?";
 }
-
-
-
-function subtaskEditModeOff(subtaskContainer) {
-
-    const subtaskEditButton = subtaskContainer.querySelector(".edit-subtask-button");
-
-    subtaskEditButton.textContent = "Edytuj";
-
-    subtaskContainer.querySelector("p").innerHTML = subtaskContainer.querySelector("input").value;
-
-    const subtaskTitle = subtaskContainer.querySelector(".subtask-title");
-    subtaskTitle.textContent = subtaskContainer.querySelector("p").textContent;
-
-
-    localStorage.setItem("tasksData", elements.mainTasksContainer.innerHTML)
-}
-
-
-
-
-
-
-
-
-function taskEditModeOn(taskContainer) {
-    const taskText = taskContainer.querySelector("p");
-    const taskTextContent = taskContainer.querySelector("p").textContent;
-
-    const taskEditButton = taskContainer.querySelector(".edit-task-button");
-
-    taskText.innerHTML = `
-            <input value="${taskTextContent}" />
-        `
-    taskEditButton.textContent = "OK?";
-
-    localStorage.setItem("tasksData", elements.mainTasksContainer.innerHTML)
-}
-
-
 
 function taskEditModeOff(taskContainer) {
 
-    const taskEditButton = taskContainer.querySelector(".edit-task-button");
+    const editTaskButton = taskContainer.querySelector(".edit-task-button");
 
-    taskEditButton.textContent = "Edytuj";
+    editTaskButton.innerHTML = `<span class="material-symbols-outlined">
+                            edit
+                    </span>`;
 
     taskContainer.querySelector("p").innerHTML = taskContainer.querySelector("input").value;
 
-    const taskTitle = taskContainer.querySelector(".task-title");
-    taskTitle.textContent = taskContainer.querySelector("p").textContent;
-
-
-    localStorage.setItem("tasksData", elements.mainTasksContainer.innerHTML)
+    localStorage.setItem("tasksData", elements.mainTasksContainer.innerHTML);
 }
 
 
-
-
-
-
-/** Save Data in Local Storage **/
+/** Save Data in Local Storage & close all modals **/
 if (localStorage.getItem("tasksData") !== null) {
     elements.mainTasksContainer.innerHTML = localStorage.getItem("tasksData");
+
+    document.querySelectorAll("dialog").forEach(dialog => {
+        dialog.removeAttribute("open")
+    })
+
 }
 
 elements.clearTasksButton.addEventListener("click", () => {
     elements.mainTasksContainer.innerHTML = null;
     localStorage.removeItem("tasksData");
 })
-
 /** END **/
 
-function removeTaskListener() {
-    const tasks = elements.mainTasksContainer.querySelectorAll(".task");
-    tasks.forEach(task => task.querySelector(".remove-task-button").addEventListener("click", () => {
-        task.remove();
-        localStorage.setItem("tasksData", elements.mainTasksContainer.innerHTML)
-    }))
-}
 
-removeTaskListener()
-
-
-
+/** Do poprawy zapewne **/
 function openTaskListener() {
+
     const tasks = elements.mainTasksContainer.querySelectorAll(".task");
+
     tasks.forEach(task => task.querySelector(".open-task-button").addEventListener("click", () => {
 
         const modal = task.querySelector("dialog");
-        const closeModalButton = task.querySelector("dialog .close");
 
         modal.setAttribute("open", "true");
-
-        closeModalButton.addEventListener("click", () => {
-            modal.removeAttribute("open");
-        })
 
     }))
 }
 
 openTaskListener()
 
-
-
-/** Po odtworzeniu strony w pamięci znajduje się dialog z wartością "open", dlatego modale domyślnie się wyświetlają **/
-
-    document.querySelectorAll("dialog").forEach(dialog => {
-        dialog.removeAttribute("open")
-})
-
-    /** Fajne mogłoby być zrobienie zapisu do pamięci przy każdym zamknięciu modala i jego otwarciu **/
-/** END ROZKMINA **/
-
-
-
-function editTaskListener() {
-    const tasks = elements.mainTasksContainer.querySelectorAll(".task");
-    tasks.forEach(task => task.querySelector(".edit-task-button").addEventListener("click", () => {
-
-        const taskInputData = task.querySelector(".task-input-data");
-
-        if (task.querySelector(".edit-task-button").dataset.isEdited === "false") {
-            task.querySelector(".edit-task-button").dataset.isEdited = "true";
-            taskEditModeOn(task);
-        } else if (task.querySelector(".edit-task-button").dataset.isEdited === "true") {
-            task.querySelector(".edit-task-button").dataset.isEdited = "false";
-            taskEditModeOff(task);
-
-        }
-    }))
-}
-
-editTaskListener()
-
-function editSubtaskListener() {
-    const subtasks = elements.mainTasksContainer.querySelectorAll(".subtask");
-    subtasks.forEach(subtask => subtask.querySelector(".edit-subtask-button").addEventListener("click", () => {
-
-
-        const taskInputData = subtask.querySelector(".subtask-input-data");
-
-        if (subtask.querySelector(".edit-subtask-button").dataset.isEdited === "false") {
-            subtask.querySelector(".edit-subtask-button").dataset.isEdited = "true";
-            subtaskEditModeOn(subtask);
-        } else if (subtask.querySelector(".edit-subtask-button").dataset.isEdited === "true") {
-            subtask.querySelector(".edit-subtask-button").dataset.isEdited = "false";
-            subtaskEditModeOff(subtask);
-        }
-    }))
-}
-
-editSubtaskListener()
-
-
-// To przecież (chyba) duplikat!
 function closeSubtaskModalListener() {
+
     const taskDialogs = elements.mainTasksContainer.querySelectorAll(".task dialog");
 
     taskDialogs.forEach(taskDialog => taskDialog.querySelector(".close").addEventListener("click", () => {
 
         taskDialog.removeAttribute("open");
-
+        localStorage.setItem("tasksData", elements.mainTasksContainer.innerHTML);
     }));
 }
 
 closeSubtaskModalListener()
 
+/** Do poprawy zapewne END**/
 
-
-function clearSubtaskModalListener() {
-    const taskDialogs = elements.mainTasksContainer.querySelectorAll(".task dialog");
-
-    taskDialogs.forEach(taskDialog => taskDialog.querySelector(".clear-subtasks-data").addEventListener("click", () => {
-
-        taskDialog.querySelector(".subtasks").innerHTML = "";
-        localStorage.setItem("tasksData", elements.mainTasksContainer.innerHTML);
-    }));
-}
-
-clearSubtaskModalListener()
-
-
-
-
-function removeSubtaskButton() {
-
-    document.querySelectorAll(".subtasks").forEach(subtasksContainer => {
-
-        subtasksContainer.querySelectorAll(".subtask").forEach(subtaskElement => {
-            const removeSubtaskButton = subtaskElement.querySelector(".remove-subtask-button");
-
-            removeSubtaskButton.addEventListener("click", () => {
-                subtaskElement.remove();
-                localStorage.setItem("tasksData", elements.mainTasksContainer.innerHTML)
-            })
-        })
-
-    })
-}
-
-removeSubtaskButton();
 
 
 
@@ -441,3 +277,68 @@ function addSubtaskButtonListener() {
 }
 
 addSubtaskButtonListener()
+
+
+
+
+/** CLEAN CODE **/
+
+const makeTaskComponentEditable = (taskElement) => {
+
+    const taskEditButton = taskElement.querySelector(".edit-task-button");
+
+    taskEditButton.addEventListener("click", () => {
+
+        if (taskEditButton.dataset.isEdited === "false") {
+
+            taskEditButton.dataset.isEdited = "true";
+            taskEditModeOn(taskElement);
+        } else if (taskEditButton.dataset.isEdited === "true") {
+
+            taskEditButton.dataset.isEdited = "false";
+            taskEditModeOff(taskElement);
+        }
+    })
+}
+
+function makeTaskComponentRemovable(taskElement) {
+
+    taskElement.querySelector(".remove-task-button").addEventListener("click", () => {
+
+            taskElement.remove();
+            localStorage.setItem("tasksData", elements.mainTasksContainer.innerHTML);
+        })
+}
+
+function makeTaskComponentsFunctional() {
+
+    const taskElements = document.querySelectorAll(".task-element");
+
+    taskElements.forEach(taskElement => {
+
+        makeTaskComponentEditable(taskElement)
+        makeTaskComponentRemovable(taskElement)
+
+    })
+}
+
+makeTaskComponentsFunctional()
+
+/** CLEAN CODE END **/
+
+function clearSubtaskModalListener() {
+    const taskDialogs = elements.mainTasksContainer.querySelectorAll(".task dialog");
+
+    taskDialogs.forEach(taskDialog => taskDialog.querySelector(".clear-subtasks-data").addEventListener("click", () => {
+
+        taskDialog.querySelector(".subtasks").innerHTML = "";
+        localStorage.setItem("tasksData", elements.mainTasksContainer.innerHTML);
+    }));
+}
+
+clearSubtaskModalListener()
+
+
+
+
+/** Wystarczy wrzucić dla pojedynczego zadania, nie dla każdego kontenera z osobna **/

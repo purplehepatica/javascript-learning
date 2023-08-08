@@ -2,7 +2,8 @@
 
 - wyśrodkować przycisk z ikonkę kosza na stronie głównej,
 - pobrać ikonki do osobnego folderu lub podmienić na link https://fonts.coollabs.io/,
-- poprawić (usunąć jeśli można, zamienić) style tak, by współgrały z pico css,
+- poprawić (usunąć jeśli można, zamienić) style tak, by współgrały z pico css
+- 
 ## Dalsze
 
 - poprawić style na stronie,

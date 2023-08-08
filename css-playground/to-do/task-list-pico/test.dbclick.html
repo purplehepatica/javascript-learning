@@ -1,11 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
-<head lang="pl">
+<html lang="pl">
+<head>
     <!--<link
             rel="stylesheet"
             href="https://cdn.jsdelivr.net/npm/@picocss/pico@next/css/pico.min.css"
     />-->
     <style>
+        ::selection {
+            background-color: #b5a2c8;
+        }
+
         body {
             display: flex;
             justify-content: center;
@@ -26,51 +30,57 @@
 
 <script>
 
-    function listenerToP() {
-        document.querySelector(".description-container p").addEventListener("click", () => {
-            document.querySelector(".description-container").innerHTML = `
-            <input class="description" type="text" value="${document.querySelector("p").textContent}" />
+    function listenerToP(container) {
+        const mainContainer = document.querySelector(container);
+        const paragraph = mainContainer.querySelector("p");
+
+        paragraph.addEventListener("click", () => {
+
+            mainContainer.innerHTML = `
+            <input class="description" type="text" value="${paragraph.textContent}" />
         `
 
-            return listenerToI()
+            return listenerToI(container)
         })
     }
 
-    function listenerToI() {
+    function listenerToI(container) {
 
-        document.querySelector(".description-container input").addEventListener("keydown", (e) => {
+        const mainContainer = document.querySelector(container);
+        const input = mainContainer.querySelector("input");
+
+        input.addEventListener("keydown", (e) => {
             if (e.key === "Enter") {
 
-                const content = document.querySelector("input").value;
+                const inputValue = input.value;
 
-                document.querySelector(".description-container").innerHTML = `
+                mainContainer.innerHTML = `
                 <p class="description"></p>
             `
 
-                document.querySelector(".description").textContent = content;
-                return listenerToP();
+                document.querySelector(".description").textContent = inputValue;
+                return listenerToP(container);
             }
         })
 
         document.addEventListener("click", (e) => {
 
-            const descriptionContainer = document.querySelector(".description-container");
+            if (e.target === document.querySelector("html") && input !== null) {
 
-            if (document.querySelector("html") === e.target && document.querySelector(".description-container input") !== null) {
-                const content = document.querySelector("input").value;
+                const inputValue = input.value;
 
-                document.querySelector(".description-container").innerHTML = `
+                mainContainer.innerHTML = `
                 <p class="description"></p>
             `
+                document.querySelector(".description").textContent = inputValue
 
-                document.querySelector(".description").textContent = content
-
-                return listenerToP();
+                return listenerToP(container);
             }
         })
 
     }
 
-    listenerToP()
+    listenerToP(".description-container")
+
 </script>
 </html>
