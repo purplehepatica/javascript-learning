@@ -25,7 +25,8 @@ function createTaskComponent() {
     taskContainer.innerHTML = `
         <article class="task-container">
             <div class="grid mobile-column">
-                <p class="grow-1">${getTaskInputData()}</p>
+            <ul><li><p class="grow-1">${getTaskInputData()}</p></li></ul>
+                
                 <div class="flex-gap">
                     <button class="open-task-button button contrast">
                         <span class="material-symbols-outlined">
@@ -48,14 +49,15 @@ function createTaskComponent() {
             <dialog>
                 <article>
                     <button
-                       class="close">
+                       class="close contrast">
                     </button>
                     <h3 class="task-title">${getTaskInputData()}</h3>
-                                        
+                    <!--                    
                     <blockquote class="description">
                         "*Tu wrzucić losowe cytaty wspomagające motywację i działanie*"<br>
                         "*Domyślnie wrzucić tutaj możliwość zmiany opisu na własny, by dany projekt był jasny*"
                     </blockquote>
+                    -->
                     <div class="flex-gap">
                         <input class="subtask-input-field" placeholder="" />
                         <button class="add-subtask-button button-flex-center-width-65">
@@ -137,6 +139,7 @@ function createTaskComponent() {
 }
 
 
+
 function createSubtaskComponent(subtaskInput, addSubtaskButton, clearSubtasksData, subtasks) {
 
     const subtaskContainer = document.createElement("div");
@@ -146,7 +149,9 @@ function createSubtaskComponent(subtaskInput, addSubtaskButton, clearSubtasksDat
     subtaskContainer.innerHTML = `
         <article class="article subtask-container">
             <div class="flex-gap">
-                <p class="subtask-title grow-1">${subtaskInput.value}</p>
+                <ul><li></li></ul>
+                    <p class="subtask-title grow-1">${subtaskInput.value}</p>
+                
                 <div class="flex-gap">
                     <button class="edit-task-button button secondary" data-is-edited="false">
                     <span class="material-symbols-outlined">
@@ -192,7 +197,9 @@ const taskEditModeOn = taskContainer => {
     contentElement.innerHTML = `
             <input value="${contentElementValue}" />
         `
-    editTaskButton.textContent = "OK?";
+    editTaskButton.innerHTML = `<span class="material-symbols-outlined">
+                            thumb_up
+                    </span>`;
 }
 
 function taskEditModeOff(taskContainer) {
@@ -261,19 +268,42 @@ closeSubtaskModalListener()
 
 
 function addSubtaskButtonListener() {
-    const taskDialogs = elements.mainTasksContainer.querySelectorAll(".task dialog");
 
-    taskDialogs.forEach(taskDialog => taskDialog.querySelector(".add-subtask-button").addEventListener("click", () => {
+    const taskElements = elements.mainTasksContainer.querySelectorAll("dialog");
 
-        const subtaskInput = taskDialog.querySelector(".subtask-input-field");
-        const addSubtaskButton = taskDialog.querySelector(".add-subtask-button");
-        const clearSubtasksData = taskDialog.querySelector(".clear-subtasks-data");
-        const subtasks = taskDialog.querySelector(".subtasks");
+    taskElements.forEach(taskElement => {
 
-        createSubtaskComponent(subtaskInput, addSubtaskButton, clearSubtasksData, subtasks)
+        const subtaskInput = taskElement.querySelector(".subtask-input-field");
+        const addSubtaskButton = taskElement.querySelector(".add-subtask-button");
+        const clearSubtasksData = taskElement.querySelector(".clear-subtasks-data");
+        const subtasks = taskElement.querySelector(".subtasks");
 
-        localStorage.setItem("tasksData", elements.mainTasksContainer.innerHTML);
-    }));
+
+
+        addSubtaskButton.addEventListener("click", () => {
+
+            createSubtaskComponent(subtaskInput, addSubtaskButton, clearSubtasksData, subtasks)
+
+            taskElement.querySelector(".subtask-input-field").value = "";
+
+            localStorage.setItem("tasksData", elements.mainTasksContainer.innerHTML);
+        })
+
+        subtaskInput.addEventListener("keydown", (e) => {
+
+            if (e.key === "Enter") {
+
+                createSubtaskComponent(subtaskInput, addSubtaskButton, clearSubtasksData, subtasks)
+
+                taskElement.querySelector(".subtask-input-field").value = "";
+
+                localStorage.setItem("tasksData", elements.mainTasksContainer.innerHTML);
+            }
+
+        });
+    });
+
+
 }
 
 addSubtaskButtonListener()

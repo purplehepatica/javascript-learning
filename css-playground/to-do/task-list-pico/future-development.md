@@ -3,12 +3,17 @@
 - wyśrodkować przycisk z ikonkę kosza na stronie głównej,
 - pobrać ikonki do osobnego folderu lub podmienić na link https://fonts.coollabs.io/,
 - poprawić (usunąć jeśli można, zamienić) style tak, by współgrały z pico css
-- 
+- Po wykonaniu zadania przekreślić tekst i umieścić zadanie gdzieś na samym dole/ (np. po lewej stronie zadania dodać checkbox z możliwością zaznaczenia zadania jako zrobione)
+- usunąć ikonkę pozwalającą na edycję zadania i zamiast tego dodać funkcję dblclick na tekst by rozpocząć edtycję zadania?
+- utworzenie przycisku export / import
+
++ te z rm2
+
 ## Dalsze
 
 - poprawić style na stronie,
 - dodać zakładki między, którymi będzie można się przełączać,
-
+- dodanie zawsze dostępnej sekcji "Daily / Dzisiaj" na pojedyczne zadania, które nie są projektami, a są do wykonania "na już"
 
 ## Done
 

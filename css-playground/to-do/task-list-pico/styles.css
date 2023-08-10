@@ -21,7 +21,11 @@ dialog article {
     width: 95%;
     height: 95%;
     max-width: 95%;
-    max-height: 95%
+    max-height: 95%;
+}
+
+dialog {
+    padding: 0;
 }
 
 .warning {
