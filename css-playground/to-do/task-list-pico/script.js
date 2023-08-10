@@ -372,3 +372,26 @@ clearSubtaskModalListener()
 
 
 /** Wystarczy wrzucić dla pojedynczego zadania, nie dla każdego kontenera z osobna **/
+
+
+
+/** TEST SKRYPTU SORTABLE **/
+const tasksDragArea = document.querySelector(".tasks");
+
+new Sortable(tasksDragArea, {
+    animation: 175,
+    onEnd: saveData
+})
+
+const subtasksDragArea = document.querySelectorAll(".subtasks");
+
+subtasksDragArea.forEach(subtaskElement => {
+    new Sortable(subtaskElement, {
+        animation: 175,
+        onEnd: saveData
+    })
+})
+
+function saveData() {
+    localStorage.setItem("tasksData", elements.mainTasksContainer.innerHTML);
+}
