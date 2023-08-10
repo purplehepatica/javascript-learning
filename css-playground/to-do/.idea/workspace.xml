@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f926ee3-3f39-474a-a5d4-8b04804f6164" name="Changes" comment="Updates and Fun // TO DO app">
-      <change afterPath="$PROJECT_DIR$/task-list-pico/test.draggable.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/task-list-pico/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/task-list-pico/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/task-list-pico/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/task-list-pico/script.js" afterDir="false" />
-    </list>
+    <list default="true" id="6f926ee3-3f39-474a-a5d4-8b04804f6164" name="Changes" comment="Updates and Fun // TO DO app + Sortable Task Items updates" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -86,7 +81,7 @@
       <workItem from="1691448106301" duration="21000" />
       <workItem from="1691500288490" duration="13266000" />
       <workItem from="1691584342978" duration="5421000" />
-      <workItem from="1691682606013" duration="1862000" />
+      <workItem from="1691682606013" duration="2488000" />
     </task>
     <task id="LOCAL-00001" summary="Updates and Fun">
       <option name="closed" value="true" />
@@ -200,7 +195,15 @@
       <option name="project" value="LOCAL" />
       <updated>1691534298852</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Updates and Fun // TO DO app + Sortable Task Items updates">
+      <option name="closed" value="true" />
+      <created>1691696872569</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1691696872569</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -224,7 +227,8 @@
     <MESSAGE value="Merge remote-tracking branch 'origin/main'&#10;&#10;# Conflicts:&#10;#&#9;css-playground/to-do/task-list-bulma/index.html&#10;#&#9;css-playground/to-do/task-list-pico/index.html&#10;#&#9;css-playground/to-do/task-list-pico/script.js&#10;#&#9;css-playground/to-do/task-list-pico/styles.css" />
     <MESSAGE value="Updates and Fun" />
     <MESSAGE value="Updates and Fun // TO DO app" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updates and Fun // TO DO app" />
+    <MESSAGE value="Updates and Fun // TO DO app + Sortable Task Items updates" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updates and Fun // TO DO app + Sortable Task Items updates" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
