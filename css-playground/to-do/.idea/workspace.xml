@@ -4,7 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f926ee3-3f39-474a-a5d4-8b04804f6164" name="Changes" comment="Updates and Fun // TO DO app + Sortable Task Items updates" />
+    <list default="true" id="6f926ee3-3f39-474a-a5d4-8b04804f6164" name="Changes" comment="Updates and Fun // TO DO app + Sortable Task Items updates">
+      <change afterPath="$PROJECT_DIR$/task-list-pico-electron/future-development.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-list-pico-electron/idea/0629daf0-66a7-11eb-8ff0-3f5d98ddd5ff-3715947819.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-list-pico-electron/idea/941a9858e0898bf861dec52ac1aa9e02-1186151664.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-list-pico-electron/idea/Ekran-Al-nt-s-3-1099445142.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-list-pico-electron/idea/FF65258C-7BB2-417D-9AF1-ACD79C36DDF3-2486508794.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-list-pico-electron/images/carrot-256.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-list-pico-electron/my-electron-app/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-list-pico-electron/my-electron-app/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-list-pico-electron/my-electron-app/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-list-pico-electron/my-electron-app/script.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-list-pico-electron/my-electron-app/styles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-list-pico-electron/test.dbclick.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-list-pico-electron/test.dbclick.html.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-list-pico-electron/test.draggable.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task-list-pico-electron/updates.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -41,25 +58,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/fedora/Dokumenty/Pulsar/javascript-learning/css-playground/to-do&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/home/fedora/Dokumenty/Pulsar/javascript-learning/css-playground/to-do/task-list-pico-electron",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/task-list-pico-electron/my-electron-app" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -81,7 +104,9 @@
       <workItem from="1691448106301" duration="21000" />
       <workItem from="1691500288490" duration="13266000" />
       <workItem from="1691584342978" duration="5421000" />
-      <workItem from="1691682606013" duration="2488000" />
+      <workItem from="1691682606013" duration="3138000" />
+      <workItem from="1691702500613" duration="11000" />
+      <workItem from="1691709034668" duration="2704000" />
     </task>
     <task id="LOCAL-00001" summary="Updates and Fun">
       <option name="closed" value="true" />
@@ -203,7 +228,15 @@
       <option name="project" value="LOCAL" />
       <updated>1691696872569</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Updates and Fun // TO DO app + Sortable Task Items updates">
+      <option name="closed" value="true" />
+      <created>1691696877582</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1691696877582</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

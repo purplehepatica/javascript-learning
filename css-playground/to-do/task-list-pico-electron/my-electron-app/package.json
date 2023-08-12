@@ -1,0 +1,20 @@
+{
+  "name": "my-electron-app",
+  "version": "1.0.0",
+  "description": "My Simple To Do App",
+  "main": "main.js",
+  "scripts": {
+    "rpm64": "electron-installer-redhat --src dist/app-linux-x64/ --dest dist/installers/ --arch x86_64",
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jakub",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^25.5.0",
+    "electron-installer-redhat": "^3.4.0"
+  },
+  "dependencies": {
+    "electron-packager": "^17.1.1"
+  }
+}
