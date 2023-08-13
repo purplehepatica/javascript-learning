@@ -18,8 +18,16 @@
 .icon {
 }
 
+.checkbox {
+    text-align: center;
+}
+
 input[name="remove-selection"]:checked {
     background-color: var(--sea-color);
+}
+
+input[name="mark-selection"]:checked {
+    background-color: var(--marker-color);
 }
 
 button {

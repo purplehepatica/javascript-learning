@@ -2,6 +2,7 @@ const elements = {
     commentsTableBody: document.querySelector(".comments-table-body"),
     removeCheckedCommentsButton: document.querySelector(".remove-checked-comments"),
     selectAllCommentsButton: document.querySelector(".select-all-comments-button"),
+    markAllCommentsButton: document.querySelector(".mark-all-comments-button"),
 }
 
 async function getCommentsData() {
@@ -23,10 +24,10 @@ async function displayComments() {
             <td>${name}</td>
             <td>${email}</td>
             <td>${body}</td>
-            <td>
+            <td class="checkbox">
                 <input type="checkbox" id="${id}" name="remove-selection" />
             </td>
-            <td>
+            <td class="checkbox">
                 <input type="checkbox" id="${id}" name="mark-selection" />
             </td>
         `
@@ -76,6 +77,7 @@ async function initializeFunctionalities() {
     addRemoveCommentsListener();
     addCheckAllCommentsListener();
     markSelectedComment();
+    addMarkAllCommentsListener();
 }
 
 initializeFunctionalities();
@@ -131,3 +133,47 @@ function markSelectedComment() {
         })
     })
 }
+
+function addMarkAllCommentsListener() {
+
+    elements.markAllCommentsButton.addEventListener("click", validateMarkCommentsSelection)
+}
+
+function validateMarkCommentsSelection() {
+
+    const allMarkCheckboxes = document.querySelectorAll(`input[name="mark-selection"]`);
+
+    if (elements.markAllCommentsButton.textContent === "Wyróżnij wszystkie") {
+
+        allMarkCheckboxes.forEach(checkbox => {
+            checkbox.checked = true;
+
+            const element = document.querySelector(`[data-id="${checkbox.id}"]`);
+
+            element.classList.add("marker");
+        })
+        elements.markAllCommentsButton.textContent = "Odróżnij wszystkie";
+
+    } else if (elements.markAllCommentsButton.textContent === "Odróżnij wszystkie") {
+
+        allMarkCheckboxes.forEach(checkbox => {
+            checkbox.checked = false;
+
+            const element = document.querySelector(`[data-id="${checkbox.id}"]`);
+
+            element.classList.remove("marker");
+        })
+
+        elements.markAllCommentsButton.textContent = "Wyróżnij wszystkie";
+    }
+}
+
+/** TEST FUNKCJONALNOŚCI WYSZUKIWANIA **/
+/**
+ * 1. Naciśnij na pole tekstowe, np. Imię, Adres e-mail, Zawartość (i ID?)
+ * 2. Dane pole zmieni się na input
+ * 3. Wpisz interesującą zawartość
+ * 4. ? - rzędy tabeli upraszczają się do danej zawartości, np. if (name === ...), then pozostaw dany rząd. Tylko w jaki sposób mają się ładować dynamicznie? Może na bazie display: none?
+ *
+ * document.querySelectorAll("[data-id]")
+ */
