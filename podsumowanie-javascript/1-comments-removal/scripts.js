@@ -71,10 +71,11 @@ function addRemoveCommentsListener() {
 
 
 
-function initializeFunctionalities() {
-    displayComments();
+async function initializeFunctionalities() {
+    await displayComments();
     addRemoveCommentsListener();
     addCheckAllCommentsListener();
+    markSelectedComment();
 }
 
 initializeFunctionalities();
@@ -105,4 +106,28 @@ function validateCommentsSelection() {
 
         elements.selectAllCommentsButton.textContent = "Zaznacz wszystkie";
     }
+}
+
+function markSelectedComment() {
+
+    const markerCheckboxes = document.querySelectorAll(`input[name="mark-selection"]`);
+
+    markerCheckboxes.forEach(checkbox => {
+
+        checkbox.addEventListener("click", () => {
+
+            if (checkbox.checked) {
+
+                const element = document.querySelector(`[data-id="${checkbox.id}"]`);
+
+                element.classList.add("marker");
+            } else {
+
+                const element = document.querySelector(`[data-id="${checkbox.id}"]`);
+
+                element.classList.remove("marker");
+            }
+
+        })
+    })
 }
