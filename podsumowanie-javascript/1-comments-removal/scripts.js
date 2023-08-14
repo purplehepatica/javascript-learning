@@ -3,11 +3,13 @@ const elements = {
     removeCheckedCommentsButton: document.querySelector(".remove-checked-comments"),
     selectAllCommentsButton: document.querySelector(".select-all-comments-button"),
     markAllCommentsButton: document.querySelector(".mark-all-comments-button"),
+    searchInput: document.querySelector(".search-input"),
+    searchForm: document.querySelector(".search-form"),
 }
 
 async function getCommentsData() {
     const comments = await fetch("https://jsonplaceholder.typicode.com/comments");
-    return await comments.json()
+    return await comments.json();
 }
 
 async function displayComments() {
@@ -30,7 +32,7 @@ async function displayComments() {
             <td class="checkbox">
                 <input type="checkbox" id="${id}" name="mark-selection" />
             </td>
-        `
+        `;
 
         elements.commentsTableBody.appendChild(tableRow);
     })
@@ -45,13 +47,15 @@ function getSelectedCommentsIds() {
     const selectedCommentsIds = [];
 
     selectedComments.forEach(comment => {
-        selectedCommentsIds.push(comment.id)
+
+        selectedCommentsIds.push(comment.id);
     })
 
     return selectedCommentsIds;
 }
 
 function removeSelectedComments() {
+
     const selectedCommentsIds = getSelectedCommentsIds();
 
     selectedCommentsIds.forEach(commentId => {
@@ -67,25 +71,14 @@ function removeSelectedComments() {
 
 function addRemoveCommentsListener() {
 
-    elements.removeCheckedCommentsButton.addEventListener("click", removeSelectedComments)
+    elements.removeCheckedCommentsButton.addEventListener("click", removeSelectedComments);
 }
 
-
-
-async function initializeFunctionalities() {
-    await displayComments();
-    addRemoveCommentsListener();
-    addCheckAllCommentsListener();
-    markSelectedComment();
-    addMarkAllCommentsListener();
-}
-
-initializeFunctionalities();
 
 
 function addCheckAllCommentsListener() {
 
-    elements.selectAllCommentsButton.addEventListener("click", validateCommentsSelection)
+    elements.selectAllCommentsButton.addEventListener("click", validateCommentsSelection);
 }
 
 function validateCommentsSelection() {
@@ -98,6 +91,7 @@ function validateCommentsSelection() {
             checkbox.checked = true;
 
         })
+
         elements.selectAllCommentsButton.textContent = "Odznacz wszystkie"
 
     } else if (elements.selectAllCommentsButton.textContent === "Odznacz wszystkie") {
@@ -129,14 +123,13 @@ function markSelectedComment() {
 
                 element.classList.remove("marker");
             }
-
         })
     })
 }
 
 function addMarkAllCommentsListener() {
 
-    elements.markAllCommentsButton.addEventListener("click", validateMarkCommentsSelection)
+    elements.markAllCommentsButton.addEventListener("click", validateMarkCommentsSelection);
 }
 
 function validateMarkCommentsSelection() {
@@ -168,12 +161,38 @@ function validateMarkCommentsSelection() {
     }
 }
 
-/** TEST FUNKCJONALNOŚCI WYSZUKIWANIA **/
-/**
- * 1. Naciśnij na pole tekstowe, np. Imię, Adres e-mail, Zawartość (i ID?)
- * 2. Dane pole zmieni się na input
- * 3. Wpisz interesującą zawartość
- * 4. ? - rzędy tabeli upraszczają się do danej zawartości, np. if (name === ...), then pozostaw dany rząd. Tylko w jaki sposób mają się ładować dynamicznie? Może na bazie display: none?
- *
- * document.querySelectorAll("[data-id]")
- */
+
+
+elements.searchForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const searchInputValue = elements.searchInput.value;
+
+    const allRowCells = document.querySelectorAll("[data-id]");
+
+    allRowCells.forEach(row => {
+        if (row.textContent.includes(searchInputValue)) {
+
+            row.classList.remove("hide");
+        } else {
+
+            row.classList.add("hide")
+        }
+
+        e.target.reset();
+    })
+
+})
+
+
+
+async function initializeFunctionalities() {
+
+    await displayComments();
+    addRemoveCommentsListener();
+    addCheckAllCommentsListener();
+    markSelectedComment();
+    addMarkAllCommentsListener();
+}
+
+initializeFunctionalities();

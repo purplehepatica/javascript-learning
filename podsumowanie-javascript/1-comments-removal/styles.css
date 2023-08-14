@@ -7,15 +7,15 @@
 .warning {
     background-color: var(--warning-color);
 }
+
 .sea {
     background-color: var(--sea-color);
     color: black;
 }
+
 .marker, .marker * {
     background-color: var(--marker-color);
     color: black;
-}
-.icon {
 }
 
 .checkbox {
@@ -30,17 +30,6 @@ input[name="mark-selection"]:checked {
     background-color: var(--marker-color);
 }
 
-button {
-    display: flex;
-    align-items: center;
-    width: auto;
-}
-
-.flex{
-    display: flex;
-    gap: 25px;
-}
-
-.space-between {
-    justify-content: space-between;
+.hide {
+    display: none;
 }
