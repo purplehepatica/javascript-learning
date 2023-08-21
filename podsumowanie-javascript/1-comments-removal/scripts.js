@@ -88,7 +88,12 @@ function validateCommentsSelection() {
     if (elements.selectAllCommentsButton.textContent === "Zaznacz wszystkie") {
 
         allRemoveCheckboxes.forEach(checkbox => {
-            checkbox.checked = true;
+
+            const element = document.querySelector(`[data-id="${checkbox.id}"]`);
+
+            if (element.classList.contains("hide") === false) {
+                checkbox.checked = true;
+            }
 
         })
 
@@ -139,11 +144,14 @@ function validateMarkCommentsSelection() {
     if (elements.markAllCommentsButton.textContent === "Wyróżnij wszystkie") {
 
         allMarkCheckboxes.forEach(checkbox => {
-            checkbox.checked = true;
 
             const element = document.querySelector(`[data-id="${checkbox.id}"]`);
 
-            element.classList.add("marker");
+            if (element.classList.contains("hide") === false) {
+                checkbox.checked = true;
+                element.classList.add("marker");
+            }
+
         })
         elements.markAllCommentsButton.textContent = "Odróżnij wszystkie";
 
@@ -162,27 +170,33 @@ function validateMarkCommentsSelection() {
 }
 
 
+function makeSearchFormWorking() {
 
-elements.searchForm.addEventListener("submit", (e) => {
-    e.preventDefault();
+    elements.searchForm.addEventListener("submit", (e) => {
 
-    const searchInputValue = elements.searchInput.value;
+        e.preventDefault();
+        const searchInputValue = elements.searchInput.value;
+        const allRowCells = document.querySelectorAll("[data-id]");
 
-    const allRowCells = document.querySelectorAll("[data-id]");
+        allRowCells.forEach(row => {
+            if (row.textContent.includes(searchInputValue)) {
 
-    allRowCells.forEach(row => {
-        if (row.textContent.includes(searchInputValue)) {
+                row.classList.remove("hide");
+            } else {
 
-            row.classList.remove("hide");
-        } else {
+                row.classList.add("hide")
+            }
 
-            row.classList.add("hide")
-        }
+            e.target.reset();
+        })
 
-        e.target.reset();
     })
+}
 
-})
+
+
+
+
 
 
 
@@ -193,6 +207,7 @@ async function initializeFunctionalities() {
     addCheckAllCommentsListener();
     markSelectedComment();
     addMarkAllCommentsListener();
+    makeSearchFormWorking();
 }
 
 initializeFunctionalities();

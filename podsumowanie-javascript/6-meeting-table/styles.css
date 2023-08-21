@@ -1,0 +1,37 @@
+* {
+    box-sizing: border-box;
+}
+
+table, tr, th, td {
+    border: 1px solid black;
+    padding: 5px;
+}
+
+.today {
+    background-color: gray;
+}
+
+.week-day {
+    text-align: left;
+}
+
+.material-symbols-outlined {
+    font-size: 50px;
+}
+
+.nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.arrow-left-nav:hover, .arrow-right-nav:hover {
+    cursor: pointer;
+}
+
+.disable {
+    color: gray;
+}
+.disable:hover {
+    cursor: not-allowed!important;
+}
