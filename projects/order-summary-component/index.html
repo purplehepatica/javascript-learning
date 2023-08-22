@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@500;700;900&display=swap" rel="stylesheet">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Order summary card</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; padding-top: 50px;}
+    .attribution a { color: hsl(228, 45%, 44%); }
+    
+    /* * { text-decoration: 0; border: 0; } */
+    
+    body { background-image: url("images/pattern-background-desktop.svg"); /* zrobione z pomocą internetu */ background-position: center; background-repeat: no-repeat; background-size: cover; background-image: /*end*/; padding-top: 100px; font-family: 'Red Hat Display', sans-serif; text-align: center; text-decoration: none; background-color: #E0E8FF }
+    
+    #main { width: 480px; height: 740px; background-color: white; box-shadow: 0 4px 8px 5px rgba(0, 0, 0, 0.05); margin: 0 auto; border-radius: 20px; }
+    
+    img { border-radius: 20px 20px 0 0; }
+    
+    .header-img { width: 100%; }
+    
+    section { padding: 40px 55px; display: flex; flex-direction: column; color: #7280A7}
+    
+    p { font-size: 18px; }
+    
+    button { background-color: hsl(245, 75%, 52%); padding: 15px; margin: 35px 0; border: 0px; border-radius: 10px; color: white; box-shadow: 0 20px 8px 0 rgba(0, 0, 0, 0.1); font-weight: 700;}
+    
+    section { font-size: 16px; }
+    
+    #text-block { display: flex; flex-direction: row; justify-content: space-around; align-content: center; background-color:  #F5F7FF; border-radius: 10px; padding: 7.5px 0; margin-top: 5px;}
+    
+    #text-block img {  margin: auto 0; }
+    
+    .text-block-column { display: flex; flex-direction: column; }
+    
+    h1 { font-weight: 900; font-size: 30px; padding: 0; margin: 0; color: black;}
+    button { font-size: 17px; }
+    
+    .no-decoration { text-decoration: none; font-weight: 700; padding-bottom: 0; }
+    
+    .description { line-height: 1.5; letter-spacing: -0.5px; }
+    
+    
+    .boldy { color: black; font-weight: 700; margin-bottom: 0; }
+    
+    .price { margin-top: 5px; }
+    
+    .change { align-self: center; font-size: 16px; }
+    
+    span { letter-spacing: 2px; }
+    
+  </style>
+  
+</head>
+
+<body>
+
+<div id="main">
+  <img class="header-img" src="images/illustration-hero.svg"></img>
+  
+  <section>
+  
+  <h1>Order Summary</h1>
+
+  <p class="description"><span class="first-letter">Y</span>ou can now listen to millions of songs, audiobooks, and podcasts on any device anywhere you like!</p>
+
+ <div id="text-block">
+ 
+  <img class="icon-music" src="images/icon-music.svg"></img>
+  
+  <!-- Poprawić to tak, by nie było centered, a zaraz obok icon-music -->
+  
+  <div class="text-block-column">
+  <p class="boldy">Annual Plan</p>
+  <p class="price">$59.99/year</p>
+  </div>
+  
+  <a class="change" href="">Change</a>
+ </div>
+ 
+ 
+  <button>Proceed to Payment</button>
+  
+  <a class="no-decoration" href="">Cancel Order</a>
+  
+  </section>
+  
+</div>
+
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Purple Hepatica</a>.
+  </div>
+</body>
+</html>
