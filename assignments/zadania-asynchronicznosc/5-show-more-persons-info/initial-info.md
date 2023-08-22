@@ -1,0 +1,2 @@
+Zapoznaj się z API https://jsonplaceholder.typicode.com i pobierz z API spod endpointa /users po załadowaniu strony wszystkich userów, a następnie za pomocą JSa stwórz funkcję, która stworzy komponent (kartę) i wyświetli dane usera w przeglądarce (name, username, email oraz adres miasto, ulica, kod pocztowy w rozwijanym w karcie panelu).
+Zastosuj operacje na DOM, składnię async, await oraz ostyluj galerię kart userów z wykorzystaniem wybranej biblioteki CSS, np. SCSS.

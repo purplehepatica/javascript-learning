@@ -1,0 +1,213 @@
+@import url('https://api.fonts.coollabs.io/css2?family=Josefin+Sans:wght@400;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    border: none;
+    overflow-wrap: break-word;
+}
+
+::selection {
+    background-color: #D6CDFC;
+    color: black;
+}
+
+body {
+    padding: 25px;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+h1 {
+    text-align: center;
+}
+
+a {
+    color: black;
+}
+
+a:hover {
+    color: white;
+    background-color: black;
+    font-weight: 700;
+}
+
+.search-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    max-width: 300px;
+    gap: 10px;
+    margin: 25px auto;
+}
+
+.search {
+    padding: 15px 25px;
+    border: 3px solid black;
+    border-radius: 5px;
+    max-width: 60%;
+}
+
+.search-button {
+    max-width: 40%;
+    padding: 15px;
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.main {
+    display: flex;
+}
+
+.bold {
+    font-weight: 700;
+}
+
+img {
+    max-width: 250px;
+}
+
+.left-sidebar {
+    margin: 25px;
+}
+
+
+.characters-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    background-color: #FCE5CD;
+    height: calc(100vh - 50px);
+    overflow: hidden;
+    overflow-y: scroll;
+
+    scrollbar-color: black rgba(0, 0, 0, 0.1);
+    scrollbar-width: auto;
+}
+
+.characters-container img{
+    width: 250px;
+    height: 250px;
+}
+
+.character-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    background-color: #FCE5CD;
+    height: 100%;
+    overflow: hidden;
+    overflow-y: scroll;
+
+    scrollbar-color: black rgba(0, 0, 0, 0.1);
+    scrollbar-width: auto;
+}
+
+.character-container img {
+    width: 300px;
+    height: 300px;
+}
+
+.character-card {
+    margin: 25px;
+    padding: 25px;
+    max-width: 300px;
+    height: 350px;
+    background-color: white;
+    box-shadow: rgba(149, 157, 165, 0.2) 0 8px 24px;
+    border-radius: 15px;
+}
+
+.character-card-extended {
+    margin: 25px auto;
+    padding: 25px;
+    max-width: 350px;
+    background-color: white;
+    box-shadow: rgba(149, 157, 165, 0.2) 0 8px 24px;
+    border-radius: 15px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.character-card-extended img {
+    margin: 0 auto;
+    padding-bottom: 16px;
+    max-width: none;
+}
+
+.character-card:hover {
+    background-color: #D6CDFC;
+    cursor: pointer;
+}
+
+.number-of-pages {
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.character-pagination {
+    color: black;
+    flex-direction: row;
+    flex-wrap: wrap;
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.character-pagination p {
+    text-align: center;
+    margin: 2px;
+}
+
+.character-pagination a {
+    padding: 5px;
+    width: 100%;
+    display: inline-block;
+}
+
+.back-button {
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    width: 200px;
+    margin: 20px auto;
+    padding: 5px;
+}
+
+.back-button a {
+    color: black;
+}
+
+.back-button:hover {
+    background-color: black;
+    color: white;
+}
+
+.back-button:hover a {
+    color: white;
+    font-weight: 400;
+}
+
+.episodes-container {
+    display: grid;
+    flex-wrap: wrap;
+    text-align: center;
+
+    grid-template-columns: repeat(13, 1fr);
+}
+
+.episode {
+    margin: 2px;
+}
