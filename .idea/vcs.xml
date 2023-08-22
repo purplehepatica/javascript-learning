@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="VcsDirectoryMappings">
-    <mapping directory="" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/projects/3-column-preview-card-component" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/projects/gallery" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/projects/tabs/tabs-quest" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/projects/tip-calculator-app" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
   </component>
 </project>
