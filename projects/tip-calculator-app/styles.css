@@ -1,0 +1,254 @@
+.attribution { font-size: 11px; text-align: center; margin-top: 50px;}
+.attribution a { color: hsl(228, 45%, 44%); }
+
+* {
+/**  margin: 0;
+  padding: 0; **/
+  box-sizing: border-box;
+  font-family: 'Space Mono', monospace;
+}
+
+body {
+  width: 100%;
+  max-height: 100%;
+  background-color: hsl(185, 41%, 84%);
+}
+
+.card {
+  max-width: 920px;
+  min-height: 481px;
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+  margin: 32px auto;
+  padding: 32px;
+  border-radius: 25px;
+  gap: clamp(1px, 48px, 48px);
+}
+
+.splitter {
+  color: #3D6666;
+  text-transform: uppercase;
+  letter-spacing: 15px;
+  margin: 85px auto;
+}
+
+.left-section {
+  max-width: 50%;
+  color: hsl(184, 14%, 56%);
+}
+
+
+.tip-percentage {
+  display: grid;
+  grid-template-columns: repeat(3, 33%);
+  grid-template-rows: repeat(2, 50px);
+  grid-auto-flow: row;
+  gap: 5px;
+  text-align: center;
+  font-weight: 700;
+}
+
+.tip-percentage button {
+  background-color: hsl(183, 100%, 15%);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  margin: 5px;
+  font-size: 24px;
+}
+
+.tip-percentage button:hover {
+  color: #00474B;
+}
+
+.tip-percentage input {
+  background-color: hsl(189, 41%, 97%);
+  color: hsl(183, 100%, 15%);
+  text-align: center;
+  border: none;
+  border-radius: 5px;
+  margin: 5px;
+}
+
+.active {
+  background-color: hsl(172, 67%, 45%)!important;
+  color: black!important;
+}
+
+.reset-part > .active:hover {
+  background-color: #9FE8DF;
+}
+
+.custom {
+  font-size: 24px;
+}
+
+.percent {
+  height: 48px;
+}
+
+.bill-part, .select-tip-part {
+  margin-bottom: 40px;
+}
+
+.bill-input, .number-of-people-input {
+  width: 100%;
+  background-color: hsl(189, 41%, 97%);
+  border: none;
+  height: 48px;
+  text-align: right;
+  padding: 0 10px;
+  font-size: 24px;
+}
+
+.bill-part-texts, .select-tip-part-texts, .number-of-people-part-texts {
+  color: #5E7A7D;
+}
+
+
+.right-section {
+  background-color: hsl(183, 100%, 15%);
+  color: white;
+  border-radius: 15px;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 40px;
+}
+
+.tip-amount-part, .total-part {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+}
+
+.reset-part {
+  flex-grow: 1;
+  display: flex;
+}
+
+.reset {
+  align-self: flex-end;
+}
+
+.tip-amount, .total {
+  color: hsl(172, 67%, 45%);
+  font-size: 48px;
+  margin: 0;
+}
+
+p span {
+  display: block;
+  font-size: 13px;
+  color: #7F9D9F;
+}
+
+h1 {
+  text-align: center;
+}
+
+h1 span {
+  display: block;
+}
+
+.reset-part {
+
+}
+
+.reset {
+  background-color: #0D686D;
+  color: #00474B;
+  border: none;
+  display: block;
+  margin: 0 auto;
+  width: 80%;
+  height: 35px;
+  margin-top: 35px;
+  border-radius: 5px;
+  font-size: 20px;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-family: Space Mono;
+}
+
+input {
+  background-color: #F3F9FA!important;
+  height: 48px;
+}
+input:hover {
+  border: 2px solid hsl(172, 67%, 45%);
+}
+
+input:focus {
+  border: none!important;
+  color: color: #00474B;
+}
+
+.percent-button:hover, .reset:hover {
+  background-color: #9FE8DF;
+}
+
+.invalid-input-value {
+  border: 2px solid #E17052!important;
+}
+
+.bill-part-texts, .select-tip-part-texts, .number-of-people-part-texts {
+  display: flex;
+  justify-content: space-between;
+}
+
+.bill-part-input-section, .number-of-people-input-section {
+  display: flex;
+}
+
+.bill-part-input-section img, .number-of-people-input-section img {
+  position: absolute;
+  align-self: center;
+  padding-left: 10px;
+}
+
+.validation {
+  color: #E17052;
+}
+
+button {
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 1024px) {
+  .card {
+    flex-direction: column;
+  }
+
+  .left-section, .right-section {
+    max-width: 100%;
+  }
+
+  .tip-percentage {
+    grid-template-columns: repeat(2, 50%);
+    grid-template-rows: repeat(3, 50%);
+  }
+
+  .percent {
+    height: 48px;
+  }
+
+  .right-section {
+    padding: 32px;
+    width: 100%;
+  }
+
+  .tip-amount-part, .total-part {
+    margin: 0;
+  }
+
+  .reset {
+    height: 48px;
+  }
+
+  .tip-amount, .total {
+    font-size: 32px;
+  }
+}

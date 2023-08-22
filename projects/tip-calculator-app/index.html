@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
+  <title>Frontend Mentor | Tip calculator app</title>
+
+</head>
+
+<body>
+  <h1 class="splitter">Spli<span>tter</span></h1>
+  <div class="card">
+    <div class="left-section">
+
+      <div class="bill-part">
+        <div class="bill-part-texts">
+          <p>Bill</p>
+          <p class="validation"></p>
+        </div>
+        <div class="bill-part-input-section">
+          <img src="images/dolar.svg" alt="Dolar Icon" />
+          <input class="bill-input" data-is-valid="0" type="text" placeholder="0" />
+        </div>
+      </div>
+
+      <div class="select-tip-part">
+        <div class="select-tip-part-texts">
+          <p>Select Tip %</p>
+          <p class="validation"></p>
+        </div>
+        <div class="tip-percentage">
+          <button class="percent percent-button five" data-tip-percent="5">5%</button>
+          <button class="percent percent-button ten" data-tip-percent="10">10%</button>
+          <button class="percent percent-button fifteen" data-tip-percent="15">15%</button>
+          <button class="percent percent-button twentyfive" data-tip-percent="25">25%</button>
+          <button class="percent percent-button fifty" data-tip-percent="50">50%</button>
+          <input class="percent custom" data-is-valid="0" type="text" placeholder="Custom" />
+        </div>
+      </div>
+
+      <div class="number-of-people-part">
+        <div class="number-of-people-part-texts">
+          <p>Number of People</p>
+          <p class="validation"></p>
+        </div>
+        <div class="number-of-people-input-section">
+          <img src="images/person.svg" alt="Person Icon" />
+          <input class="number-of-people-input" data-is-valid="0" type="text" placeholder="0" />
+        </div>
+      </div>
+
+    </div>
+
+    <div class="right-section">
+      <div class="tip-amount-part">
+        <p>Tip amount<span>/ person</span></p>
+        <p class="tip-amount">$0.00</p>
+      </div>
+      <div class="total-part">
+        <p>Total<span>/ person</span></p>
+        <p class="total">$0.00</p>
+      </div>
+
+      <div class="reset-part">
+        <button class="reset">Reset</button>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+    Coded by <a href="#">Purple Hepatica</a>.
+  </div>
+</body>
+
+</html>

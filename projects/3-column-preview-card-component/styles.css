@@ -1,0 +1,74 @@
+.attribution { font-size: 11px; text-align: center; }
+.attribution a { color: hsl(228, 45%, 44%); }
+
+body {
+  padding-top: 150px;
+  font-family: 'Lexend Deca', sans-serif;
+  background-color: hsl(0, 0%, 95%);
+}
+
+.button {
+  background-color: hsl(0, 0%, 95%);
+  grid-column: 2;
+}
+
+h2 {
+  text-transform: uppercase;
+  font-family: 'Big Shoulders Display', cursive;
+  font-size: 32px;
+  color: hsl(0, 0%, 95%);
+}
+
+p {
+  color: hsla(0, 0%, 100%, 0.75);
+}
+
+.main {
+  max-width: 1024px;
+  height: 600px;
+  margin: 0 auto;
+  color: white;
+
+  display: grid;
+  grid-template-columns: repeat(3, minmax(50px, 300px));
+  justify-content: center;
+}
+
+.section {
+  padding: 50px;
+  flex-direction: column;
+}
+
+img {
+}
+
+.left {
+  background-color: hsl(31, 77%, 52%);
+}
+
+.left .button {
+  color: hsl(31, 77%, 52%);
+}
+
+.mid {
+  background-color: hsl(184, 100%, 22%);
+}
+
+.mid .button {
+  color: hsl(184, 100%, 22%);
+}
+
+.right {
+  background-color: hsl(179, 100%, 13%);
+}
+
+.right .button {
+  color: hsl(179, 100%, 13%);
+}
+
+.button {
+  padding: 10px 25px;
+  text-decoration: none;
+  border-radius: 25px;
+  align-self: stretch;
+}
