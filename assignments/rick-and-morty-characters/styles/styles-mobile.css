@@ -1,0 +1,46 @@
+@media only screen and (max-width: 767px) {
+    .main {
+        flex-direction: column;
+    }
+
+    .left-sidebar {
+        display: flex;
+        flex-direction: column;
+    }
+
+    img {
+        max-width: 200px;
+    }
+
+    .character-card {
+        max-width: 250px;
+    }
+
+    .character-card-extended {
+        max-width: 300px;
+    }
+
+    .character-container img{
+        width: 225px;
+        height: 225px;
+    }
+
+    .character-pagination {
+        grid-template-columns: repeat(9, 1fr);
+    }
+
+    .characters-container {
+        height: 350px;
+    }
+
+    .characters-container img{
+        width: 200px;
+        height: 200px;
+    }
+}
+
+@media only screen and (max-width: 374px) {
+    .character-pagination {
+        grid-template-columns: repeat(6, 1fr);
+    }
+}
