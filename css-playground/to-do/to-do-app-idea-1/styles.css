@@ -1,0 +1,31 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  background-color: beige;
+}
+
+.item {
+  width: 250px;
+  height: 100%;
+  background-color: black;
+  touch-action: none;
+  user-select: none;
+  box-sizing: border-box;
+  min-width: 250px;
+  max-width: 50%;
+
+  max-height: 100%;
+  color: white;
+
+  overflow-wrap: break-word;
+}
+
+.tab-element p {
+  color: white!important;
+  max-width: 100%;
+}
