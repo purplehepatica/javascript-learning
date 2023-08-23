@@ -1,41 +1,104 @@
-import { year2023WeeksAndDays } from './year2023WeeksAndDays.js';
-import { meetings } from './meetings.js';
-
+import {
+    year2023WeeksAndDays
+} from './year2023WeeksAndDays.js';
+import {
+    meetings
+} from './meetings.js';
 
 const today = new Date();
-const year = today.getFullYear();
-
-
-const firstDayOfYearUTC = new Date(Date.UTC(today.getFullYear(), 0, 1));
-
-
-
-
+const currentYear = today.getFullYear();
+const firstDayOfCurrentYearUTC = new Date(Date.UTC(today.getFullYear(), 0, 1));
 
 const elements = {
     numOfWeekElement: document.querySelector(".num-of-week"),
     leftNavArrow: document.querySelector(".arrow-left-nav"),
-    rightNavArrow: document.querySelector(".arrow-right-nav")
+    rightNavArrow: document.querySelector(".arrow-right-nav"),
+    selectedWeekRowDayNames: document.querySelectorAll(".week-day"),
+    arrowsNavComponent: document.querySelector(".arrows-nav-component"),
+    weekSection: document.querySelector(".week-section"),
+    weekDays: document.querySelectorAll(".week-body"),
 }
 
-const localMonth = {
-    month: 'long'
+let daysOfSelectedWeek;
+let weekNumber;
+
+
+
+const getWeekParameter = () => {
+
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+
+    return urlParams.get('week');
 }
-const nameOfDay = {
-    weekday: 'long'
+
+function isWeekParameterValid() {
+
+    const weekParameter = getWeekParameter();
+
+    const yearWeeks = [];
+    for (let i = 0; i <= 52; i++) {
+        yearWeeks.push(i);
+    }
+
+    return yearWeeks.includes(Number(weekParameter)) || weekParameter === null;
 }
 
-//console.log(today.getDay());
-//console.log(today.toLocaleDateString("pl-PL", localMonth))
+function getWeekNumber() {
 
-//console.log(today.toLocaleDateString("pl-PL", nameOfDay))
+    const weekParameter = getWeekParameter();
+    const currentWeek = Math.round((today - firstDayOfCurrentYearUTC) / 60 / 60 / 24 / 7 / 1000);
 
+    if (weekParameter === null) {
+        weekNumber = currentWeek;
+    } else {
+        weekNumber = weekParameter
+    }
+
+    return weekNumber;
+}
+
+function appendHTMLIncorrectWeekParameterMessageAndHideElements() {
+
+    elements.numOfWeekElement.textContent = `Cześć! Niestety, ale wprowadziłeś nieprawidłowy parametr "week" w adresie URL. Spróbuj ponownie :-)`;
+
+    elements.arrowsNavComponent.classList.add("hide");
+    elements.weekSection.classList.add("hide");
+}
+
+function getDaysOfSelectedWeek() {
+
+    daysOfSelectedWeek = year2023WeeksAndDays[weekNumber];
+
+    return daysOfSelectedWeek;
+}
+
+function appendHTMLYearAndWeekInfo() {
+
+    elements.numOfWeekElement.innerHTML = `Rok: ${currentYear},<br>Tydzień: ${weekNumber}\n`;
+}
+
+function addDatesToWeekdays() {
+
+    //do poprawy nazewnictwo?
+    elements.selectedWeekRowDayNames.forEach((day, index) => {
+
+        if (daysOfSelectedWeek[index] !== null) {
+
+            day.innerText += `, ${daysOfSelectedWeek[index]}`;
+        }
+    });
+}
 
 function markCurrentDay() {
-    const numOfWeekend = today.getDay();
-    let tableClassToMark = null;
 
-    switch (numOfWeekend) {
+    const dayOfWeek = today.getDay();
+
+    const todayDayMonthYearInfo = `${today.getDate()}-${today.getMonth() + 1}-${today.getFullYear()}`;
+
+    let tableClassToMark;
+
+    switch (dayOfWeek) {
         case 0:
             tableClassToMark = ".sunday";
             break;
@@ -59,161 +122,110 @@ function markCurrentDay() {
             break;
     }
 
-    document.querySelector(tableClassToMark).classList.add("today");
-}
+    if (daysOfSelectedWeek.includes(todayDayMonthYearInfo)) {
 
-
-
-
-
-const numOfWeek = null
-
-
-const queryString = window.location.search;
-const urlParams = new URLSearchParams(queryString);
-
-let weekNumber = urlParams.get('week');
-
-
-
-let selectedWeekDays = null;
-
-
-function getWeekNumber() {
-
-    if (weekNumber === null ) {
-        // DO ROZDZIELENIA RACZEJ - ALBO SAMO GET ALBO PRZY OKAZJI TEXTCONTENT
-
-        weekNumber = Math.round((today - firstDayOfYearUTC) / 60 / 60 / 24 / 7 / 1000);
-
-
+        document.querySelector(tableClassToMark).classList.add("today");
     }
-
-    if (weekNumber < 0 || weekNumber > 52) {
-        weekNumber = 0;
-    }
-
-    selectedWeekDays = year2023WeeksAndDays[weekNumber];
-
-    elements.numOfWeekElement.textContent = `Rok: ${year}, Tydzień: ${weekNumber}\n`;
-}
-
-
-
-
-function addDatesToWeekdays() {
-
-
-
-    const selectedWeekRowDayNames = document.querySelectorAll(".week-day");
-
-    selectedWeekRowDayNames.forEach((day, index) => {
-
-        if (selectedWeekDays[index] !== null) {
-            day.innerText += `, ${selectedWeekDays[index]}-${year}`;
-        }
-    });
 }
 
 function searchForMeetings() {
 
-    const weekDays = document.querySelectorAll(".week-body");
+    daysOfSelectedWeek.forEach((weekday, index) => {
 
-    selectedWeekDays.forEach((weekday, index) => {
-
-
-        let getMonthThenDay = null;
-
-        if (weekday !== null) {
-            getMonthThenDay = weekday.split("-").reverse();
-
-
+        if (weekday === null) {
+            return;
         }
-        const [ month, day ] = getMonthThenDay;
-        let thatDayMeeting = null;
+
+        let getMonthThenDay = weekday.split("-").reverse();
+
+        const [year, month, day] = getMonthThenDay;
+
+        if (meetings[year] &&
+            meetings[year][month] &&
+            meetings[year][month][day]) {
 
 
+            let thatDayMeeting = meetings[year][month][day];
+            let weekdayMeetings = [];
 
+            if (Array.isArray(thatDayMeeting) === false) {
+                weekdayMeetings.push(thatDayMeeting);
+            } else {
+                weekdayMeetings = thatDayMeeting.slice()
+            }
 
-        try {
-            thatDayMeeting = meetings[year][month][day];
-
-
-
-
-
-        if (thatDayMeeting === undefined || thatDayMeeting === null) {
-            // nothing
-
-        } else if (Array.isArray(thatDayMeeting) === false) {
-
-            const element = document.createElement("tr");
-            const { time, desc, name } = thatDayMeeting;
-
-            element.innerHTML = `
-            <td>${time}</td>
-            <td>${desc}</td>
-            <td>${name}</td>
-        `
-
-            weekDays[index].appendChild(element);
-
-        } else if (Array.isArray(thatDayMeeting) === true) {
-
-            thatDayMeeting.forEach(item => {
-
+            weekdayMeetings.forEach(meeting => {
                 const element = document.createElement("tr");
-                const { time, desc, name } = item;
+                const {
+                    time,
+                    desc,
+                    name
+                } = meeting;
 
                 element.innerHTML = `
-            <td>${time}</td>
-            <td>${desc}</td>
-            <td>${name}</td>
-        `
+                    <td>${time}</td>
+                    <td>${desc}</td>
+                    <td>${name}</td>                        
+                `
 
-                weekDays[index].appendChild(element);
+                elements.weekDays[index].appendChild(element);
             })
-        }
-
-        } catch (error) {
         }
     })
 }
 
-
-
-function makeNavArrowsWorking() {
-
-    console.log(weekNumber);
+const makeLeftArrowWorking = () => {
 
     if (weekNumber > 0) {
         elements.leftNavArrow.addEventListener("click", () => {
-            window.location.replace(`./?week=${Number(weekNumber) - 1}`);
+
+            window.location.replace(`./?week=${--weekNumber}`);
         });
     } else {
-        elements.leftNavArrow.classList.add("disable")
+        elements.leftNavArrow.disabled = true;
     }
+}
 
+const makeRightArrowWorking = () => {
 
     if (weekNumber < 52) {
         elements.rightNavArrow.addEventListener("click", () => {
-            window.location.replace(`./?week=${Number(weekNumber) + 1}`);
+
+            window.location.replace(`./?week=${++weekNumber}`);
         });
     } else {
-        elements.rightNavArrow.classList.add("disable")
+        elements.rightNavArrow.disabled = true;
     }
+}
+
+function makeNavArrowsWorking() {
+
+    makeLeftArrowWorking();
+    makeRightArrowWorking();
 }
 
 
 
 function initializePageBuild() {
-    getWeekNumber();
-    markCurrentDay();
 
-    addDatesToWeekdays();
-    searchForMeetings();
+    if (isWeekParameterValid()) {
 
-    makeNavArrowsWorking();
+        getWeekNumber();
+        getDaysOfSelectedWeek();
+        appendHTMLYearAndWeekInfo();
+
+        addDatesToWeekdays();
+        markCurrentDay();
+
+        searchForMeetings();
+
+        makeNavArrowsWorking();
+
+    } else {
+        appendHTMLIncorrectWeekParameterMessageAndHideElements();
+    }
+
+
 }
 
-initializePageBuild()
+initializePageBuild();

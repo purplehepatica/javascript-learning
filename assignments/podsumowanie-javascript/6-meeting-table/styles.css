@@ -1,37 +1,29 @@
-* {
-    box-sizing: border-box;
+table, td, tr, th {
+    border: 1px solid white;
+}
+.today * {
+    background-color: var(--pico-color-slate-600);
+    font-size: 1.1rem;
+    font-weight: bold;
 }
 
-table, tr, th, td {
-    border: 1px solid black;
-    padding: 5px;
-}
-
-.today {
-    background-color: gray;
+.bold {
+    font-weight: bold;
 }
 
 .week-day {
-    text-align: left;
+    text-align: center;
 }
 
-.material-symbols-outlined {
+.material-icons {
     font-size: 50px;
 }
 
-.nav {
-    display: flex;
-    flex-direction: row;
+.hide {
+    display: none;
+}
+
+.grid {
     align-items: center;
-}
-
-.arrow-left-nav:hover, .arrow-right-nav:hover {
-    cursor: pointer;
-}
-
-.disable {
-    color: gray;
-}
-.disable:hover {
-    cursor: not-allowed!important;
+    justify-items: center;
 }
