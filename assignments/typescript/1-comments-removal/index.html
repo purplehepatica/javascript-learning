@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@next/css/pico.min.css">
+        <link
+                rel="stylesheet"
+                href="https://cdn.jsdelivr.net/npm/@picocss/pico@next/css/pico.colors.min.css"
+        />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+
+        <script src="./scripts.js" defer></script>
+        <link rel="stylesheet" href="./styles.css">
+        <title>Tabelka z komentarzami</title>
+    </head>
+
+    <body>
+
+        <header class="container">
+            <div class="grid">
+                <h1>Tabelka z komentarzami</h1>
+
+                <form class="search-form" role="search">
+                    <input class="search-input" type="search" placeholder="" />
+                    <input class="contrast" type="submit" value="Wyszukaj" />
+                </form>
+            </div>
+
+            <div class="grid">
+                <button class="marker mark-all-comments-button">Wyróżnij wszystkie</button>
+
+                <button class="sea select-all-comments-button">Zaznacz wszystkie</button>
+
+                <button class="warning icon remove-checked-comments">
+                                <span class="material-symbols-outlined">
+                                    delete
+                                </span>
+                </button>
+            </div>
+        </header>
+
+        <main class="container">
+            <div class="comments-container">
+                <figure>
+                    <table class="striped comments-table">
+                        <thead data-theme="light">
+                        <tr>
+                            <th>ID</th>
+                            <th>Imię</th>
+                            <th>Adres e-mail</th>
+                            <th>Zawartość</th>
+                            <th>Zaznacz</th>
+                            <th>Wyróżnij</th>
+                        </tr>
+                        </thead>
+                        <tbody class="comments-table-body">
+                        </tbody>
+                        <tfoot data-theme="light">
+                        <tr>
+                            <th>ID</th>
+                            <td>Imię</td>
+                            <td>Adres e-mail</td>
+                            <td>Zawartość</td>
+                            <th>Zaznacz</th>
+                            <td>Wyróżnij</td>
+                        </tr>
+                        </tfoot>
+                    </table>
+                </figure>
+            </div>
+        </main>
+    </body>
+</html>

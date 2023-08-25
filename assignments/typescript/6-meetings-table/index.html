@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Meeting table</title>
+
+        <link href="https://api.fonts.coollabs.io/icon?family=Material+Icons" rel="stylesheet">
+
+        <link
+                rel="stylesheet"
+                href="https://cdn.jsdelivr.net/npm/@picocss/pico@next/css/pico.min.css"
+        />
+
+        <link
+                rel="stylesheet"
+                href="https://cdn.jsdelivr.net/npm/@picocss/pico@next/css/pico.colors.min.css"
+        />
+
+        <link rel="stylesheet" href="./styles.css">
+        <script type="module" src="./year2023WeeksAndDays.js"></script>
+        <script type="module" src="./scripts.js" defer></script>
+
+    </head>
+
+    <body class="container">
+
+        <main class="nav grid">
+            <h1 class="num-of-week"></h1>
+
+            <div class="arrows-nav-component">
+                <div role="group">
+                    <button class="arrow-left-nav contrast">
+                    <span class="material-icons">
+                    arrow_left
+                </span>
+                    </button>
+                    <button class="arrow-right-nav contrast">
+                    <span class="material-icons">
+                    arrow_right
+                </span>
+                    </button>
+                </div>
+            </div>
+        </main>
+        <section class="week-section ">
+
+            <table>
+                <thead data-theme="light">
+                    <tr>
+                        <th>Godzina</th>
+                        <th>Opis</th>
+                        <th>Dane kontrahenta</th>
+                    </tr>
+                </thead>
+
+                <tbody class="monday week-body">
+                    <tr class="week-day-row">
+                        <th class="week-day bold" colspan="3">Poniedziałek</th>
+                    </tr>
+                </tbody>
+
+                <tbody class="tuesday week-body">
+                    <tr class="week-day-row">
+                        <th class="week-day bold" colspan="3">Wtorek</th>
+                    </tr>
+                </tbody>
+
+                <tbody class="wednesday week-body">
+                    <tr class="week-day-row">
+                        <th class="week-day bold" colspan="3">Środa</th>
+                    </tr>
+                </tbody>
+
+                <tbody class="thursday week-body">
+                    <tr class="week-day-row">
+                        <th class="week-day bold" colspan="3">Czwartek</th>
+                    </tr>
+                </tbody>
+
+                <tbody class="friday week-body">
+                    <tr class="week-day-row">
+                        <th class="week-day bold" colspan="3">Piątek</th>
+                    </tr>
+                </tbody>
+
+                <tbody class="saturday week-body">
+                    <tr class="week-day-row">
+                        <th class="week-day bold" colspan="3">Sobota</th>
+                    </tr>
+                </tbody>
+
+                <tbody class="sunday week-body">
+                    <tr class="week-day-row">
+                        <th class="week-day bold" colspan="3">Niedziela</th>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </body>
+</html>
