@@ -197,7 +197,7 @@ function validateMarkCommentsSelection(): void {
 
 function makeSearchFormWorking(): void {
 
-    elements.searchForm.addEventListener("submit", (e: Event): void => {
+    elements.searchForm.addEventListener("submit", (e: SubmitEvent): void => {
 
         e.preventDefault();
         const searchInputValue: string = elements.searchInput.value;

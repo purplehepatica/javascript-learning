@@ -1,5 +1,9 @@
-export const year2023WeeksAndDays = {
-    '0': [null, null, null, null, null, null, '1-1-2023'],
+interface Year2023WeeksAndDays {
+    [weekNumber: string]: Array<string | null>
+}
+
+export const year2023WeeksAndDays: Year2023WeeksAndDays = {
+    '0': [ null, null, null, null, null, null, '1-1-2023' ],
     '1': [
         '2-1-2023',
         '3-1-2023',
@@ -405,7 +409,7 @@ export const year2023WeeksAndDays = {
         '11-11-2023',
         '12-11-2023'
     ],
-    '46': [
+        '46': [
         '13-11-2023',
         '14-11-2023',
         '15-11-2023',
@@ -414,7 +418,7 @@ export const year2023WeeksAndDays = {
         '18-11-2023',
         '19-11-2023'
     ],
-    '47': [
+        '47': [
         '20-11-2023',
         '21-11-2023',
         '22-11-2023',
@@ -423,7 +427,7 @@ export const year2023WeeksAndDays = {
         '25-11-2023',
         '26-11-2023'
     ],
-    '48': [
+        '48': [
         '27-11-2023',
         '28-11-2023',
         '29-11-2023',
@@ -432,7 +436,7 @@ export const year2023WeeksAndDays = {
         '2-12-2023',
         '3-12-2023'
     ],
-    '49': [
+        '49': [
         '4-12-2023',
         '5-12-2023',
         '6-12-2023',
@@ -441,7 +445,7 @@ export const year2023WeeksAndDays = {
         '9-12-2023',
         '10-12-2023'
     ],
-    '50': [
+        '50': [
         '11-12-2023',
         '12-12-2023',
         '13-12-2023',
@@ -450,7 +454,7 @@ export const year2023WeeksAndDays = {
         '16-12-2023',
         '17-12-2023'
     ],
-    '51': [
+        '51': [
         '18-12-2023',
         '19-12-2023',
         '20-12-2023',
@@ -459,7 +463,7 @@ export const year2023WeeksAndDays = {
         '23-12-2023',
         '24-12-2023'
     ],
-    '52': [
+        '52': [
         '25-12-2023',
         '26-12-2023',
         '27-12-2023',
@@ -468,4 +472,4 @@ export const year2023WeeksAndDays = {
         '30-12-2023',
         '31-12-2023'
     ]
-};
+}
