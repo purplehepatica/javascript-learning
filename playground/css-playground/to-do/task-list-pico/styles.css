@@ -64,3 +64,21 @@ nav li {
 button {
     max-width: 65px;
 }
+
+/** testowa samowolka
+p::before {
+        content: "";
+        background: white;
+        border-radius: 1ch;
+        padding-inline: 5px;
+        margin-inline-end: 5px;
+}
+**/
+
+.drag-icon {
+    font-size: 35px!important;
+}
+
+.task-text {
+    display: flex;
+}

@@ -17,6 +17,13 @@
 
 ## Done
 
+### 29.08.2023
+
+- zaimplementowany prosty mechanizm potwierdzenia wyczyszczenia całej listy zadań,
+- poprawiony drag&drop z zewnętrznego skryptu na przeciąganie tylko po naciśnięciu na ikonę,
+
+### Wcześniej
+
 - Wprowadzić dodawanie zadania przy pomocy przycisku "Enter",
 - Dodać przycisk pozwalający na usunięcie wybranego zadania z listy,
 - Dodać przycisk pozwalający na edycję wybranego zadania z listy,

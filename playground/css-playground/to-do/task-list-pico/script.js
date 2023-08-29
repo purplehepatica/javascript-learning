@@ -1,3 +1,6 @@
+/** CHECKED "CLEAN" CODE **/
+
+// Można, by zrobić jeszcze fajniejszy podział w stylu: elements.button.addTask :-)
 const elements = {
     addTaskButton: document.querySelector(".add-task-button"),
     taskInputField: document.querySelector(".task-input-field"),
@@ -5,17 +8,73 @@ const elements = {
     clearTasksButton: document.querySelector(".clear-tasks-data")
 }
 
-elements.addTaskButton.addEventListener("click", createTaskComponent);
-document.addEventListener("keydown", (e) => {
-    if (e.key === "Enter") {
-        return createTaskComponent();
+
+
+/** Load Data from Local Storage & close all modals **/
+
+function loadDataFromLocalStorage() {
+
+    if (localStorage.getItem("tasksData") !== null) {
+        elements.mainTasksContainer.innerHTML = localStorage.getItem("tasksData");
+
+        makeSureAllModalsAreClosed();
     }
-});
+}
+
+
+
+function makeSureAllModalsAreClosed() {
+
+    document.querySelectorAll("dialog").forEach(dialog => {
+        dialog.removeAttribute("open")
+    })
+}
+/** END **/
+
+
+
+function saveData() {
+    localStorage.setItem("tasksData", elements.mainTasksContainer.innerHTML);
+}
+
+function addInitialEventListeners() {
+
+    elements.addTaskButton.addEventListener("click", createTaskComponent);
+
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") {
+            return createTaskComponent();
+        }
+    });
+
+    elements.clearTasksButton.addEventListener("click", () => {
+
+        if(confirm("Czy jesteś pewien?")) {
+            elements.mainTasksContainer.innerHTML = null;
+            localStorage.removeItem("tasksData");
+        }
+    });
+}
+
+function initializeBuild() {
+
+    loadDataFromLocalStorage();
+    addInitialEventListeners();
+}
+
+initializeBuild();
+
+
 
 function getTaskInputData() {
     return elements.taskInputField.value;
 }
 
+/** END "CLEAN" CODE **/
+
+
+
+// To do przejrzenia, może pójdzie jakoś oczyścić... może podzielić?
 function createTaskComponent() {
 
     const taskContainer = document.createElement("div");
@@ -25,9 +84,13 @@ function createTaskComponent() {
     taskContainer.innerHTML = `
         <article class="task-container">
             <div class="grid mobile-column">
-            <ul><li><p class="grow-1">${getTaskInputData()}</p></li></ul>
-                
-                <div class="flex-gap">
+                <div class="task-text">
+                    <span class="drag-icon material-symbols-outlined">
+                        drag_indicator
+                    </span>
+                    <p class="grow-1">${getTaskInputData()}</p>
+                </div>
+            <div class="flex-gap">
                     <button class="open-task-button button contrast">
                         <span class="material-symbols-outlined">
                             open_in_new
@@ -44,7 +107,6 @@ function createTaskComponent() {
                     </span>
                 </button>
                 </div>
-                
             </div>
             <dialog>
                 <article>
@@ -76,71 +138,62 @@ function createTaskComponent() {
                     
                     </div>
                     
-                    
                 </article>
             </dialog>
         </article>
     `;
 
-    const subtaskInput = taskContainer.querySelector(".subtask-input-field");
-    const addSubtaskButton = taskContainer.querySelector(".add-subtask-button");
-    const clearSubtasksData = taskContainer.querySelector(".clear-subtasks-data");
-    const subtasks = taskContainer.querySelector(".subtasks");
+    const subtaskElements = {
+        input: taskContainer.querySelector(".subtask-input-field"),
+        addButton: taskContainer.querySelector(".add-subtask-button"),
+        clearDataButton: taskContainer.querySelector(".clear-subtasks-data"),
+        allSubtasks: taskContainer.querySelector(".subtasks"),
+        modal: taskContainer.querySelector("dialog"),
+        closeModalButton: taskContainer.querySelector("dialog .close")
+    }
 
+    subtaskElements.addButton.addEventListener("click", () => {
 
-    addSubtaskButton.addEventListener("click", () => {
-        createSubtaskComponent(subtaskInput, addSubtaskButton, clearSubtasksData, subtasks);
-        subtaskInput.value = "";
+        createSubtaskComponent(subtaskElements.input, subtaskElements.allSubtasks);
+        subtaskElements.input.value = "";
     })
-
-    subtaskInput.addEventListener("keydown", (e) => {
+    subtaskElements.input.addEventListener("keydown", (e) => {
         if (e.key === "Enter") {
-            createSubtaskComponent(subtaskInput, addSubtaskButton, clearSubtasksData, subtasks);
-            subtaskInput.value = "";
+            createSubtaskComponent(subtaskElements.input, subtaskElements.allSubtasks);
+            subtaskElements.input.value = "";
         }
     })
 
-    const modal = taskContainer.querySelector("dialog");
-    const closeModalButton = taskContainer.querySelector("dialog .close");
+    subtaskElements.clearDataButton.addEventListener("click", () => {
+
+        if(confirm("Czy jesteś pewien?")) {
+            subtaskElements.allSubtasks.innerHTML = "";
+            saveData();
+        }
+    })
 
     taskContainer.querySelector(".open-task-button").addEventListener("click", () => {
-        modal.setAttribute("open", "true");
+        subtaskElements.modal.setAttribute("open", "true");
     })
 
-    closeModalButton.addEventListener("click", () => {
-        modal.removeAttribute("open");
+    subtaskElements.closeModalButton.addEventListener("click", () => {
+        subtaskElements.modal.removeAttribute("open");
     })
-
-
-
-
-
-    /** CLEAN CODE **/
-
-    /** TASK SECTION **/
 
     makeTaskComponentEditable(taskContainer)
     makeTaskComponentRemovable(taskContainer)
-
-    /** CLEAN CODE END **/
-
-
-
 
     if (getTaskInputData() !== "") {
         elements.mainTasksContainer.append(taskContainer);
     }
 
-
-
-    localStorage.setItem("tasksData", elements.mainTasksContainer.innerHTML);
-
+    saveData();
     elements.taskInputField.value = null;
 }
 
 
-
-function createSubtaskComponent(subtaskInput, addSubtaskButton, clearSubtasksData, subtasks) {
+// To do przejrzenia, może pójdzie jakoś oczyścić... może podzielić?
+function createSubtaskComponent(subtaskInput, subtasks) {
 
     const subtaskContainer = document.createElement("div");
     subtaskContainer.classList.add("subtask");
@@ -149,7 +202,6 @@ function createSubtaskComponent(subtaskInput, addSubtaskButton, clearSubtasksDat
     subtaskContainer.innerHTML = `
         <article class="article subtask-container">
             <div class="flex-gap">
-                <ul><li></li></ul>
                     <p class="subtask-title grow-1">${subtaskInput.value}</p>
                 
                 <div class="flex-gap">
@@ -169,10 +221,6 @@ function createSubtaskComponent(subtaskInput, addSubtaskButton, clearSubtasksDat
         </article>
     `;
 
-    clearSubtasksData.addEventListener("click", () => {
-        subtasks.innerHTML = "";
-    })
-
     makeTaskComponentEditable(subtaskContainer);
     makeTaskComponentRemovable(subtaskContainer);
 
@@ -181,12 +229,12 @@ function createSubtaskComponent(subtaskInput, addSubtaskButton, clearSubtasksDat
     if (subtaskInput.value !== "") {
 
         subtasks.append(subtaskContainer);
-        localStorage.setItem("tasksData", elements.mainTasksContainer.innerHTML)
+        saveData();
     }
 
 }
 
-
+// Można by dodać zamiast innerHTML textContent w celu wyeliminowania możliwości wprowadzenia, np. elementu html
 const taskEditModeOn = taskContainer => {
 
     const contentElement = taskContainer.querySelector("p");
@@ -195,42 +243,30 @@ const taskEditModeOn = taskContainer => {
     const editTaskButton = taskContainer.querySelector(".edit-task-button");
 
     contentElement.innerHTML = `
-            <input value="${contentElementValue}" />
-        `
-    editTaskButton.innerHTML = `<span class="material-symbols-outlined">
-                            thumb_up
-                    </span>`;
+        <input value="${contentElementValue}" />
+    `;
+    editTaskButton.innerHTML = `
+        <span class="material-symbols-outlined">
+            thumb_up
+        </span>
+    `;
 }
 
-function taskEditModeOff(taskContainer) {
+// Można by dodać zamiast innerHTML textContent w celu wyeliminowania możliwości wprowadzenia, np. elementu html
+const taskEditModeOff = taskContainer => {
 
     const editTaskButton = taskContainer.querySelector(".edit-task-button");
 
-    editTaskButton.innerHTML = `<span class="material-symbols-outlined">
-                            edit
-                    </span>`;
+    editTaskButton.innerHTML = `
+        <span class="material-symbols-outlined">
+            edit
+        </span>
+    `;
 
     taskContainer.querySelector("p").innerHTML = taskContainer.querySelector("input").value;
 
-    localStorage.setItem("tasksData", elements.mainTasksContainer.innerHTML);
+    saveData();
 }
-
-
-/** Save Data in Local Storage & close all modals **/
-if (localStorage.getItem("tasksData") !== null) {
-    elements.mainTasksContainer.innerHTML = localStorage.getItem("tasksData");
-
-    document.querySelectorAll("dialog").forEach(dialog => {
-        dialog.removeAttribute("open")
-    })
-
-}
-
-elements.clearTasksButton.addEventListener("click", () => {
-    elements.mainTasksContainer.innerHTML = null;
-    localStorage.removeItem("tasksData");
-})
-/** END **/
 
 
 /** Do poprawy zapewne **/
@@ -256,7 +292,7 @@ function closeSubtaskModalListener() {
     taskDialogs.forEach(taskDialog => taskDialog.querySelector(".close").addEventListener("click", () => {
 
         taskDialog.removeAttribute("open");
-        localStorage.setItem("tasksData", elements.mainTasksContainer.innerHTML);
+        saveData();
     }));
 }
 
@@ -282,22 +318,22 @@ function addSubtaskButtonListener() {
 
         addSubtaskButton.addEventListener("click", () => {
 
-            createSubtaskComponent(subtaskInput, addSubtaskButton, clearSubtasksData, subtasks)
+            createSubtaskComponent(subtaskInput, subtasks)
 
             taskElement.querySelector(".subtask-input-field").value = "";
 
-            localStorage.setItem("tasksData", elements.mainTasksContainer.innerHTML);
+            saveData();
         })
 
         subtaskInput.addEventListener("keydown", (e) => {
 
             if (e.key === "Enter") {
 
-                createSubtaskComponent(subtaskInput, addSubtaskButton, clearSubtasksData, subtasks)
+                createSubtaskComponent(subtaskInput, subtasks)
 
                 taskElement.querySelector(".subtask-input-field").value = "";
 
-                localStorage.setItem("tasksData", elements.mainTasksContainer.innerHTML);
+                saveData();
             }
 
         });
@@ -336,7 +372,7 @@ function makeTaskComponentRemovable(taskElement) {
     taskElement.querySelector(".remove-task-button").addEventListener("click", () => {
 
             taskElement.remove();
-            localStorage.setItem("tasksData", elements.mainTasksContainer.innerHTML);
+            saveData();
         })
 }
 
@@ -361,8 +397,10 @@ function clearSubtaskModalListener() {
 
     taskDialogs.forEach(taskDialog => taskDialog.querySelector(".clear-subtasks-data").addEventListener("click", () => {
 
-        taskDialog.querySelector(".subtasks").innerHTML = "";
-        localStorage.setItem("tasksData", elements.mainTasksContainer.innerHTML);
+        if(confirm("Czy jesteś pewien?")) {
+            taskDialog.querySelector(".subtasks").innerHTML = "";
+            saveData();
+        }
     }));
 }
 
@@ -380,7 +418,10 @@ const tasksDragArea = document.querySelector(".tasks");
 
 new Sortable(tasksDragArea, {
     animation: 175,
-    onEnd: saveData
+    onEnd: saveData,
+    //draggable: ".task-element",
+    //filter: "dialog",
+    handle: ".drag-icon"
 })
 
 const subtasksDragArea = document.querySelectorAll(".subtasks");
@@ -392,6 +433,4 @@ subtasksDragArea.forEach(subtaskElement => {
     })
 })
 
-function saveData() {
-    localStorage.setItem("tasksData", elements.mainTasksContainer.innerHTML);
-}
+/** END **/
