@@ -3,7 +3,7 @@ interface Year2023WeeksAndDays {
 }
 
 export const year2023WeeksAndDays: Year2023WeeksAndDays = {
-    '0': [ null, null, null, null, null, null, '1-1-2023' ],
+    '0': [ null, null, null, null, null, null, 'part-1-2023' ],
     '1': [
         '2-1-2023',
         '3-1-2023',

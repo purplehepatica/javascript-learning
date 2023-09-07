@@ -1,0 +1,56 @@
+body {
+    background-color: white;
+}
+
+.card {
+    width: 300px;
+    background-color: white;
+    color: black;
+
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 25px;
+    padding: 15px 0;
+    margin: 50px;
+
+    border: 3px solid cornflowerblue;
+    box-shadow: 5px 5px 8px 10px grey;
+}
+
+.card * {
+    margin: 0;
+    padding: 0;
+}
+
+.title {
+    font-size: 24px;
+}
+
+.num-of-medals {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.flex {
+    display: flex;
+    gap: 20px;
+}
+
+hr {
+    border-top: 2px solid black!important;
+    width: 100%;
+    margin-top: 35px;
+}
+
+.avatar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 100%;
+    text-align: center;
+    border: 3px solid black;
+}

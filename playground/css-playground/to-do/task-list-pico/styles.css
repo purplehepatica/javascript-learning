@@ -82,3 +82,7 @@ p::before {
 .task-text {
     display: flex;
 }
+
+dialog article:not(.subtask-container) {
+    background-color: #10181E;
+}
