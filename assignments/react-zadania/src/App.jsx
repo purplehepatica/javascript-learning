@@ -10,13 +10,13 @@ function App() {
                 <nav>
                     <ul>
                         <li>
-                            <Link to="/part-1/task-1/">Zadanie 1-1</Link>
+                            <Link to="./part-1/task-1/">Zadanie 1-1</Link>
                         </li>
                     </ul>
                 </nav>
 
                 <Routes>
-                    <Route path="/part-1/task-1" element={
+                    <Route path="./part-1/task-1" element={
                         <Card
                             name={"Janusz"}
                             surname={"Pieprz"}
