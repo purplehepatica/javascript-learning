@@ -1,0 +1,32 @@
+.nav-element {
+    box-sizing: border-box;
+}
+
+.nav-element ul {
+    background-color: black;
+    display: flex;
+    padding: 0;
+}
+
+.nav-element ul li {
+    background-color: white;
+    list-style: none;
+    padding: 12px 8px;
+    margin: 4px;
+}
+
+.nav-element ul li:hover {
+    background-color: black;
+    color: white;
+    padding: 12px 8px;
+    margin: 4px;
+}
+
+.nav-element ul li:hover a{
+    color: white;
+}
+
+.nav-element a {
+    color: black;
+    font-weight: bold;
+}
