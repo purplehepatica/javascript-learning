@@ -8,6 +8,8 @@ import Grid from "./part-1/task-3/Grid.jsx";
 
 import Nav from "./part-1/task-4/Nav.jsx";
 
+import Footer from "./part-1/task-5/Footer.jsx";
+
 const data2 = [
     {
         name: "Alfred",
@@ -33,6 +35,30 @@ const data2 = [
     },
 ];
 
+const footer = {
+    company: {
+        addressLine1: "Brzozowa 23",
+        addressLine2: "Katowice 40-000",
+        phone: "+48123456977",
+        mail: "mail@example.com",
+        name: "ABGF Sp. z o. o.",
+        logo: "link-to-image"
+    },
+    socials: {
+        fb: "facebook.com",
+        instagram: "instagram.com",
+        twitter: "twitter.com"
+    },
+    links: {
+        help: "/help",
+        pay: "/pay",
+        agreement: '/agreement',
+        dashboard: '/dashboard',
+        reading: '/reading',
+        reports: '/reports',
+    }
+};
+
 function App() {
     return (
         <Router>
@@ -50,6 +76,9 @@ function App() {
                         </li>
                         <li>
                             <Link to="/part-1/task-4/">Zadanie 1-4</Link>
+                        </li>
+                        <li>
+                            <Link to="/part-1/task-5/">Zadanie 1-5</Link>
                         </li>
                     </ul>
                 </nav>
@@ -87,6 +116,12 @@ function App() {
 
                     <Route path="/part-1/task-4" element={
                         <Nav />
+                    }/>
+
+                    <Route path="/part-1/task-5" element={
+                        <Footer
+                            footer={footer}
+                        />
                     }/>
                 </Routes>
             </div>

@@ -1,0 +1,86 @@
+.grid {
+    display: grid;
+
+}
+
+a:hover {
+    color: black!important;
+}
+
+.logo-container {
+    background-color: grey;
+    width: 200px;
+    height: 50px;
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    width: 1440px;
+    columns: 3;
+    color: black;
+    border: 5px solid black;
+    padding: 25px;
+    box-shadow: rgba(240, 46, 170, 0.4) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px, rgba(240, 46, 170, 0.2) 15px 15px, rgba(240, 46, 170, 0.1) 20px 20px, rgba(240, 46, 170, 0.05) 25px 25px;
+}
+
+.footer-head, .footer-bottom {
+    margin: 10px;
+}
+
+.footer-head {
+    display: flex;
+    justify-content: center;
+}
+
+.footer-head > div {
+    border: 5px solid black;
+    margin: 25px;
+    width: 50%;
+    box-shadow: rgba(240, 46, 170, 0.4) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px, rgba(240, 46, 170, 0.2) 15px 15px, rgba(240, 46, 170, 0.1) 20px 20px, rgba(240, 46, 170, 0.05) 25px 25px;
+    padding-bottom: 25px;
+}
+
+.footer-bottom {
+    border-top: 3px solid black;
+}
+
+.bold {
+    font-weight: 700;
+}
+
+.company {
+    display: flex;
+    justify-content: space-around;
+}
+
+.links-bottom {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+
+}
+
+.links-head hr {
+    max-width: 25%;
+}
+
+.socials-links {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    padding: 5px;
+}
+
+.socials-links p:first-of-type {
+    border-right: 1px solid black;
+    padding-right: 10px;
+}
+
+.socials {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+}
