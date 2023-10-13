@@ -1,13 +1,11 @@
 import './App.css'
 import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
 
+/** PART 1 **/
 import Card from "./part-1/task-1/Card.jsx";
 import Cards from "./part-1/task-2/Cards.jsx";
-
 import Grid from "./part-1/task-3/Grid.jsx";
-
 import Nav from "./part-1/task-4/Nav.jsx";
-
 import Footer from "./part-1/task-5/Footer.jsx";
 
 const data2 = [
@@ -34,7 +32,6 @@ const data2 = [
         gold: 0,
     },
 ];
-
 const footer = {
     company: {
         addressLine1: "Brzozowa 23",
@@ -59,6 +56,21 @@ const footer = {
     }
 };
 
+/** PART 2 **/
+import ShowDataElement from './part-2/task-1/ShowDataElement.jsx';
+
+
+
+const initialData = {
+    human: {
+        sex: "man",
+        surname: "Detic",
+    },
+    accountBalance: 1000,
+};
+
+
+
 function App() {
     return (
         <Router>
@@ -79,6 +91,10 @@ function App() {
                         </li>
                         <li>
                             <Link to="/part-1/task-5/">Zadanie 1-5</Link>
+                        </li>
+                        <hr/>
+                        <li>
+                            <Link to="/part-2/task-1/">Zadanie 2-1</Link>
                         </li>
                     </ul>
                 </nav>
@@ -123,6 +139,9 @@ function App() {
                             footer={footer}
                         />
                     }/>
+                    <Route path="/part-2/task-1" element={
+                        <ShowDataElement initialData={initialData} />
+                    }/>
                 </Routes>
             </div>
         </Router>
@@ -139,4 +158,5 @@ Cards.defaultProps = {
     gold: 0
 
 }
-export default App
+
+export default App;
