@@ -56,9 +56,13 @@ const footer = {
     }
 };
 
+
 /** PART 2 **/
 import ShowDataElement from './part-2/task-1/ShowDataElement.jsx';
 
+import PostElement from './part-2/task-2/PostElement.jsx';
+import FetchData from "./part-2/task-2/FetchData.jsx";
+const postsURL = 'https://jsonplaceholder.typicode.com/posts';
 
 
 const initialData = {
@@ -95,6 +99,9 @@ function App() {
                         <hr/>
                         <li>
                             <Link to="/part-2/task-1/">Zadanie 2-1</Link>
+                        </li>
+                        <li>
+                            <Link to="/part-2/task-2/">Zadanie 2-2</Link>
                         </li>
                     </ul>
                 </nav>
@@ -141,6 +148,9 @@ function App() {
                     }/>
                     <Route path="/part-2/task-1" element={
                         <ShowDataElement initialData={initialData} />
+                    }/>
+                    <Route path="/part-2/task-2" element={
+                        <FetchData postsURL={postsURL} />
                     }/>
                 </Routes>
             </div>
