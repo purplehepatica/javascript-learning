@@ -1,0 +1,18 @@
+.posts {
+    background-color: beige;
+    color: black;
+}
+
+.post {
+    text-align: left;
+    padding: 10px 25px;
+    border: 1px solid black;
+}
+
+.post p {
+    font-weight: bold;
+}
+
+.post span {
+    font-weight: normal;
+}

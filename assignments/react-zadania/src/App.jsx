@@ -60,7 +60,6 @@ const footer = {
 /** PART 2 **/
 import ShowDataElement from './part-2/task-1/ShowDataElement.jsx';
 
-import PostElement from './part-2/task-2/PostElement.jsx';
 import FetchData from "./part-2/task-2/FetchData.jsx";
 const postsURL = 'https://jsonplaceholder.typicode.com/posts';
 
@@ -73,6 +72,56 @@ const initialData = {
     accountBalance: 1000,
 };
 
+import Table from './part-2/task-3/Table.jsx';
+
+const data = [
+    {
+        "id": 2,
+        "name": "Nowa Osoba 2",
+        "username": "Nowy Użytkownik 2",
+        "email": "nowy@osoba2.com",
+        "address": {
+            "street": "Nowa Ulica 2",
+            "suite": "Apt. 200",
+            "city": "Nowe Miasto 2",
+            "zipcode": "12345",
+            "geo": {
+                "lat": "12.3456",
+                "lng": "98.7654"
+            }
+        },
+        "phone": "2-222-222-222",
+        "website": "nowy2.com",
+        "company": {
+            "name": "Nowa Firma 2",
+            "catchPhrase": "Nowy Przykład 2",
+            "bs": "Nowa Branża 2"
+        }
+    },
+    {
+        "id": 3,
+        "name": "Nowa Osoba 3",
+        "username": "Nowy Użytkownik 3",
+        "email": "nowy@osoba3.com",
+        "address": {
+            "street": "Nowa Ulica 3",
+            "suite": "Apt. 300",
+            "city": "Nowe Miasto 3",
+            "zipcode": "54321",
+            "geo": {
+                "lat": "98.7654",
+                "lng": "12.3456"
+            }
+        },
+        "phone": "3-333-333-333",
+        "website": "nowy3.com",
+        "company": {
+            "name": "Nowa Firma 3",
+            "catchPhrase": "Nowy Przykład 3",
+            "bs": "Nowa Branża 3"
+        }
+    }
+];
 
 
 function App() {
@@ -102,6 +151,9 @@ function App() {
                         </li>
                         <li>
                             <Link to="/part-2/task-2/">Zadanie 2-2</Link>
+                        </li>
+                        <li>
+                            <Link to="/part-2/task-3/">Zadanie 2-3</Link>
                         </li>
                     </ul>
                 </nav>
@@ -151,6 +203,9 @@ function App() {
                     }/>
                     <Route path="/part-2/task-2" element={
                         <FetchData postsURL={postsURL} />
+                    }/>
+                    <Route path="/part-2/task-3" element={
+                        <Table data={data} />
                     }/>
                 </Routes>
             </div>
